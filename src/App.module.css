@@ -3,9 +3,39 @@
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
    
-    
 }
 
 div{
     background-color: #ffffff;
 }
+* {
+    box-sizing: border-box;
+  }
+  
+a {
+    color: #2142b2;
+    transition: color ease-in-out 0.3s;
+  }
+  
+a:hover {
+    text-decoration: none;
+    color: #2142b2;
+}
+  
+a:hover i {
+    color: #2142b2;
+    transition: color ease-in-out 0.3s;
+}
+  
+i {
+    color:#1a1a8d45;
+    font-size: 1.4rem;
+    padding: 7px;
+    vertical-align: middle;
+  }
+  
+i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #2142b2;;
+  }
