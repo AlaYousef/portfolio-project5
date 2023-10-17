@@ -1,16 +1,21 @@
-import React from 'react'
+import React from 'react';
 import { Navbar, Container, Nav, Form } from "react-bootstrap";
+import logo from '../assets/logo.png';
 
 function NavBar() {
   return (
     <Navbar bg="light" variant="light" fixed="top" expand="md">
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-    <Nav className="ml-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-    </Nav>
-    
+    <Container>
+      <Navbar.Brand><img src={logo} alt='logo' height='60' /></Navbar.Brand>
+      <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav className="ml-auto">
+            <Nav.Link >Home</Nav.Link>
+            <Nav.Link >Sign in</Nav.Link>
+            <Nav.Link >Sign up</Nav.Link>
+          </Nav>
+      </Navbar.Collapse>
+    </Container>
   </Navbar>
   )
 }
