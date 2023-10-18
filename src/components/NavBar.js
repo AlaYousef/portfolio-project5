@@ -10,7 +10,7 @@ function NavBar() {
       <Container>
 
         <NavLink to="/">
-          <Navbar.Brand><img src={logo} alt='logo' height='60' /></Navbar.Brand>
+          <Navbar.Brand><img src={logo} alt='logo' height='50' width='150' /></Navbar.Brand>
         </NavLink>
         <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
