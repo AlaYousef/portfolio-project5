@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -7,16 +7,48 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
-
-import { Link } from "react-router-dom";
-
+import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import axios from "axios";
 
 function SignInForm() {
-//   Add your component logic here
+  /*Destructure the useState hook */
+  const [signInData, setSignInData] = useState({
+    username: "",
+    password: "",
+  });
 
+  const {username, password} = signInData;
+
+  /* useState hook with an empty object to store and set errors. */
+  const[errors, setErrors] = useState({
+  });
+
+  const history = useHistory();
+
+  /* onChange handler function to handle the SignInData and update the state*/
+  const handleChange = (event) => {
+    setSignInData({
+        ...signInData,
+        [event.target.name]: event.target.value
+    })
+}
+
+/* submit handler Post all sigip data to the api and redirect to home page*/
+  const handleSubmit = async (event) => {
+
+    /* preventDefault event so that the page doesn’t refresh. */
+    event.preventDefault();
+    try{
+        await axios.post('/dj-rest-auth/login/', signInData);
+        history.push('/');
+    }catch(err){
+        /* Errors conditional chaining */
+        setErrors(err.response?.data)
+    }
+}
   return (
     <Row className={styles.Row}>
       <Col className="my-auto p-0 p-md-2" md={8}>
@@ -29,17 +61,19 @@ function SignInForm() {
             </Link>
          </p>
 
-         <Form>
+         <Form onSubmit={handleSubmit}>
             <Form.Group as={Row} className="mb-3" controlId="username">
             <Form.Label column sm="2">
                 UserName
             </Form.Label>
             <Col sm="10">
                 <Form.Control type="text" placeholder="Enter your username" 
-                            name="username" />
+                            name="username" value={username} onChange={handleChange}/>
             </Col>
             </Form.Group>
-            
+            {errors.username?.map((message, index) => 
+                <Alert varient="warning" key={index}>{message}</Alert>
+            )}
 
             <Form.Group as={Row} className="mb-3" controlId="password">
                 <Form.Label column sm="2">
@@ -47,22 +81,28 @@ function SignInForm() {
                 </Form.Label>
                 <Col sm="10">
                     <Form.Control type="password" placeholder="Your password" 
-                                name="password"/>
+                                name="password" value={password} onChange={handleChange}/>
                 </Col>
             </Form.Group>
+            {errors.password?.map((message, index) => 
+                <Alert varient="warning" key={index}>{message}</Alert>
+            )}
             
             <Button variant="primary" type="submit" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}>
                 Sign in
             </Button>
+            {errors.non_field_errors?.map((message, index) => (
+              <Alert key={index} variant="warning" className="mt-2">
+                {message}
+              </Alert>
+            ))}
+
          </Form>
-
-
         </Container>
-
       </Col>
+
       <Col md={4}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
-      >
+        className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`} >
         <Image
           className={`${appStyles.FillerImage}`}
           src={"https://res.cloudinary.com/dko5fxoa0/image/upload/v1697621609/pexels-rdne-stock-project-7282017_n1vvep.webp"}
