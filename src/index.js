@@ -9,9 +9,10 @@ import { CurrentUserProvider } from "./contexts/CurrentUserContext";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-
-      <App />
-      <CurrentUserProvider />
+      
+      <CurrentUserProvider>
+          <App />
+      </CurrentUserProvider>
 
     </Router>
   </React.StrictMode>,
