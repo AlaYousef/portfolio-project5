@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -12,12 +12,16 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import axios from "axios";
+import { SetCurrentUserContext } from "../../App";
 
 function SignInForm() {
+  /* use the useContext fun.*/
+  const setCurrentUser = useContext(SetCurrentUserContext);
+
   /*Destructure the useState hook */
   const [signInData, setSignInData] = useState({
     username: "",
-    password: "",
+    password: ""
   });
 
   const {username, password} = signInData;
@@ -42,7 +46,8 @@ function SignInForm() {
     /* preventDefault event so that the page doesn’t refresh. */
     event.preventDefault();
     try{
-        await axios.post('/dj-rest-auth/login/', signInData);
+        const {data} = await axios.post('/dj-rest-auth/login/', signInData);
+        setCurrentUser(data.user);
         history.push('/');
     }catch(err){
         /* Errors conditional chaining */
