@@ -5,8 +5,14 @@
 
   .NavLink {
     padding: 5px;
+    
+    
   }
   
   .Active i {
     color: #2142b2;
+  }
+  
+  .ProfileNavLink{
+    padding: 5px;
   }

@@ -3,13 +3,49 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
+import Avatar from "./Avatar";
+import axios from "axios";
 
 function NavBar() {
   
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-  const loggedInIcons = <>{ currentUser?.username }</>
+  const addPostIcon = (
+    <NavLink to="/posts/create" className={styles.NavLink} activeClassName={styles.Active} >
+        <i class="fa-solid fa-plus"></i> New post
+    </NavLink>
+  )
+  const loggedInIcons = <>
+    <NavLink to="/feed" className={styles.NavLink} activeClassName={styles.Active} >
+      <i class="fa-solid fa-bars-staggered"></i> Feed
+    </NavLink>
+    
+    <NavLink to="/liked" className={styles.NavLink} activeClassName={styles.Active} >
+      <i class="fa-regular fa-thumbs-up"></i> Liked
+    </NavLink>
+
+    <NavLink to="/saved" className={styles.NavLink} activeClassName={styles.Active} >
+      <i class="fa-regular fa-bookmark"></i> Saved
+    </NavLink>
+
+    <NavLink to="/" className={styles.NavLink} onClick={handleSignOut}>
+      <i class="fa-solid fa-right-from-bracket"></i> Sign out
+    </NavLink>
+
+    <NavLink to={`/profiles/${currentUser?.profile_id}`} className={styles.ProfileNavLink} >
+     <Avatar src={currentUser?.profile_image} height={45} text="profile"/>
+    </NavLink>
+  </>
   const loggedOutIcons = (
     <>
       <NavLink to="/signin" className={styles.NavLink} activeClassName={styles.Active} >
@@ -32,6 +68,7 @@ function NavBar() {
         <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="ml-auto text-left justify-content-center">
+              {currentUser && addPostIcon}
               <NavLink to="/" className={styles.NavLink} activeClassName={styles.Active} ><i className="fa-solid fa-house"></i> Home</NavLink>
               {currentUser ? loggedInIcons : loggedOutIcons}
             </Nav>
