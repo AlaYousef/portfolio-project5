@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
@@ -6,11 +6,14 @@ import { NavLink } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 function NavBar() {
   
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
+
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -59,13 +62,13 @@ function NavBar() {
   )
 
   return (
-    <Navbar className={styles.NavBar}  fixed="top" expand="md">
+    <Navbar expanded={expanded} className={styles.NavBar}  fixed="top" expand="md">
       <Container>
 
         <NavLink to="/">
           <Navbar.Brand><img src={logo} alt='logo' height='50' width='150' /></Navbar.Brand>
         </NavLink>
-        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Toggle aria-controls="navbarScroll"  onClick={() => setExpanded(!expanded)} ref={ref}/>
           <Navbar.Collapse id="navbarScroll">
             <Nav className="ml-auto text-left justify-content-center">
               {currentUser && addPostIcon}
