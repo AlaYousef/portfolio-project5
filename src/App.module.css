@@ -2,13 +2,14 @@
     font-family: 'Alegreya', serif;
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
+    font-size: 15px;
    
 }
 .Main {
   padding-top: 85px;
 }
 .Content {
-  background-color: #ffffff;
+  background-color:  #ffffff;
   padding: 10px;
   border-radius: 2px;
   border: 1px solid  #2142b2;
@@ -25,9 +26,7 @@
   max-width: 100%;
   object-fit: contain;
 }
-div{
-    background-color: #ffffff;
-}
+
 * {
     box-sizing: border-box;
   }

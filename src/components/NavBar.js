@@ -32,10 +32,6 @@ function NavBar() {
     <NavLink to="/feed" className={styles.NavLink} activeClassName={styles.Active} >
       <i class="fa-solid fa-bars-staggered"></i> Feed
     </NavLink>
-    
-    <NavLink to="/liked" className={styles.NavLink} activeClassName={styles.Active} >
-      <i class="fa-regular fa-thumbs-up"></i> Liked
-    </NavLink>
 
     <NavLink to="/saved" className={styles.NavLink} activeClassName={styles.Active} >
       <i class="fa-regular fa-bookmark"></i> Saved
@@ -66,7 +62,7 @@ function NavBar() {
       <Container>
 
         <NavLink to="/">
-          <Navbar.Brand><img src={logo} alt='logo' height='50' width='150' /></Navbar.Brand>
+          <Navbar.Brand><img src={logo} alt='logo' height='60' width='65'/></Navbar.Brand>
         </NavLink>
         <Navbar.Toggle aria-controls="navbarScroll"  onClick={() => setExpanded(!expanded)} ref={ref}/>
           <Navbar.Collapse id="navbarScroll">
