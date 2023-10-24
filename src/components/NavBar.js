@@ -24,8 +24,8 @@ function NavBar() {
   };
 
   const addPostIcon = (
-    <NavLink to="/posts/create" className={styles.NavLink} activeClassName={styles.Active} >
-        <i class="fa-solid fa-plus"></i> New post
+    <NavLink to="/recipes/create" className={styles.NavLink} activeClassName={styles.Active} >
+        <i class="fa-solid fa-plus"></i> New Recipe
     </NavLink>
   )
   const loggedInIcons = <>

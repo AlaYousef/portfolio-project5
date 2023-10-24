@@ -13,6 +13,7 @@
     opacity: 0.8;
     border-color: transparent;
     cursor: pointer;
+    box-shadow: 5px 5px 5px lightblue;
   }
   
   .Button:hover:active {

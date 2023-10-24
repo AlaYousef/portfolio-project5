@@ -69,7 +69,7 @@ function SignInForm() {
             </Link>
          </p>
 
-         <Form onSubmit={handleSubmit}>
+         <Form onSubmit={handleSubmit} className="">
             <Form.Group as={Row} className="mb-3" controlId="username">
             <Form.Label column sm="2">
                 UserName
