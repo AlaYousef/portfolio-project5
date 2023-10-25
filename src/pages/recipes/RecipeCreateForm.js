@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -13,6 +13,8 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosReq } from "../../api/axiosDefaults";
 
 
 function RecipeCreateForm() {
@@ -26,6 +28,9 @@ function RecipeCreateForm() {
     });
     
     const { name, ingredients, steps, image } = recipeData;
+
+    const imageInput = useRef(null);
+    const history = useHistory();
   
     const handleChange = (event) => {
       setRecipeData({
@@ -44,6 +49,26 @@ function RecipeCreateForm() {
       }
     };
   
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('ingredients', ingredients);
+      formData.append('steps', steps);
+      formData.append('image', imageInput.current.files[0]);
+
+      
+
+      /* refresh access token */
+      try{
+        const {data} = await axiosReq.post('/recipes/', formData);
+        history.push(`/recipes/${data.id}`)
+      }catch(err){
+        if (err.response?.status !== 401) {
+          setErrors(err.response?.data);
+        }
+      }
+    };
     const textFields = (
       <div className="text-center justify-content-center">
         <Form.Group as={Row} className="mb-3" controlId="name">
@@ -72,12 +97,12 @@ function RecipeCreateForm() {
             <Col sm="10">
                 <Form.Control as="textarea" rows={6} name="steps" 
                 placeholder="1.&#13;&#10;2. &#13;&#10;3. " 
-                value={steps} onChange={handleChange} />
+                value={steps} onChange={handleChange} ref={imageInput}/>
             </Col>
         </Form.Group>
 
        
-        <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} onClick={() => {}}>
+        <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} onClick={() => history.goBack()}>
           cancel
         </Button>
         <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
@@ -87,7 +112,7 @@ function RecipeCreateForm() {
     );
   
     return (
-      <Form>
+      <Form onSubmit={handleSubmit}>
          <Row>
           <Col md={10} lg={9} className="py-2 p-0 p-md-2 d-none d-md-block p-md-3 justify-content-center mx-auto">
           <Container  className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
@@ -108,7 +133,8 @@ function RecipeCreateForm() {
                       <Asset src={Upload} message="Click or tap to upload an image" />
                     </Form.Label>
                   )}
-                    <Form.Control type="file" onChange={handleChangeImage}/>
+                    <Form.Control type="file" onChange={handleChangeImage}
+                      accept="image/*" ref={imageInput}/>
                 </Form.Group>
                 <div className="d-md-none">{textFields}</div>
             </Container>
