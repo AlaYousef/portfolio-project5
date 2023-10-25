@@ -44,9 +44,8 @@ function RecipeCreateForm() {
       }
     };
   
-
     const textFields = (
-      <div className="text-center">
+      <div className="text-center justify-content-center">
         <Form.Group as={Row} className="mb-3" controlId="name">
             <Form.Label column sm="2">
                 Name
@@ -76,7 +75,8 @@ function RecipeCreateForm() {
                 value={steps} onChange={handleChange} />
             </Col>
         </Form.Group>
-      
+
+       
         <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} onClick={() => {}}>
           cancel
         </Button>
@@ -88,41 +88,42 @@ function RecipeCreateForm() {
   
     return (
       <Form>
-        <Row>
-          <Col md={8} lg={8} className="d-none d-md-block p-0 p-md-3">
-            <Container className={appStyles.Content}>{textFields}</Container>
-          </Col>
-
-          <Col className="py-2 p-0 p-md-3" md={4} lg={4}>
-            <Container
-              className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
-              <Form.Group className="text-center">
-              {image ? (
-                <>
-                  <figure>
-                    <Image className={appStyles.Image} src={image} rounded />
-                  </figure>
-                  <div>
-                    <Form.Label className={`${btnStyles.Button} ${btnStyles.Blue} btn`} htmlFor="image-upload">
-                      Change the image
+         <Row>
+          <Col md={10} lg={9} className="py-2 p-0 p-md-2 d-none d-md-block p-md-3 justify-content-center mx-auto">
+          <Container  className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
+            <Form.Group className="text-center" controlId="formFile">
+                  {image ? (
+                    <>
+                      <figure>
+                        <Image className={appStyles.Image} src={image} rounded />
+                      </figure>
+                      <div>
+                        <Form.Label className={`${btnStyles.Button} ${btnStyles.Blue} btn`}>
+                          Change the image
+                        </Form.Label>
+                      </div>
+                    </>
+                  ) : (
+                    <Form.Label className="d-flex justify-content-center" >
+                      <Asset src={Upload} message="Click or tap to upload an image" />
                     </Form.Label>
-                  </div>
-                </>
-              ) : (
-                <Form.Label className="d-flex justify-content-center" htmlFor="image-upload" >
-                  <Asset src={Upload} message="Click or tap to upload an image" />
-                </Form.Label>
-              )}
-
-              <Form.File id="image-upload" accept="image/*" onChange={handleChangeImage} />
-            </Form.Group>
-            <div className="d-md-none">{textFields}</div>
-          </Container>
-        </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
-        </Col>
+                  )}
+                    <Form.Control type="file" onChange={handleChangeImage}/>
+                </Form.Group>
+                <div className="d-md-none">{textFields}</div>
+            </Container>
+          </Col>
         </Row>
+        <Row>
+          <Col xs={12} md={10} lg={9} className="py-2 p-0 p-md-2 d-md-block p-md-3 justify-content-center mx-auto">
+          
+            <Container className={appStyles.Content}>
+              <Row className=" fs-2 justify-content-center mb-3 mt-2 "> Add Your Own Healthy Recipe</Row>
+              {textFields}
+            </Container>
+          </Col>
+        </Row>
+
       </Form>
     );
   }
