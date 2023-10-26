@@ -125,6 +125,12 @@ function RecipeCreateForm() {
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
         create
       </Button>
+      {errors.non_field_errors?.map((message, index) => (
+              <Alert key={index} variant="warning" className="mt-2">
+                {message}
+              </Alert>
+      ))}
+
     </div>
   );
 

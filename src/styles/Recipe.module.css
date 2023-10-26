@@ -1,0 +1,26 @@
+.Recipe {
+    background-color: #ffffff;
+    border: 1px solid #dadadf;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+    
+  }
+  
+  .Recipe figure,
+  h5 {
+    margin: 0 0;
+  }
+  
+  .Heart {
+    color: #2142b2;
+  }
+  
+  .Heart:hover {
+    color: #f85032;
+  }
+  
+  .HeartOutline:hover {
+    color: #2142b2;
+  }
+  
