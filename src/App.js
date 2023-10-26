@@ -19,7 +19,7 @@ function App() {
               <Route exact path="/signin" render={() => <SignInForm />} />
               <Route exact path="/signup" render={() => <SignUpForm />} />
               <Route exact path="/recipes/create" render={() => <RecipeCreateForm />} />
-              <Route render={() => <p> Page not found :( ! </p>} />
+              <Route render={() => <p> Page not found ! </p>} />
             </Switch>
           </Container>
         </div>
