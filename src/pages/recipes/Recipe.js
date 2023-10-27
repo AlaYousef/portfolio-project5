@@ -26,6 +26,7 @@ const Recipe = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { recipe: id });
@@ -33,7 +34,24 @@ const Recipe = (props) => {
         ...prevRecipes,
         results: prevRecipes.results.map((recipe) => {
           return recipe.id === id
-            ? { ...recipe, likes_count: recipe.likes_count + 1, like_id: data.id }
+            ? { ...recipe,  likes_count: recipe.likes_count + 1, like_id: data.id }
+            : recipe;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+ 
+  const handleBookmark = async () => {
+    try {
+      const { data } = await axiosRes.post("/bookmarks/", { recipe: id });
+      setRecipes((prevRecipes) => ({
+        ...prevRecipes,
+        results: prevRecipes.results.map((recipe) => {
+          return recipe.id === id
+            ? { ...recipe, save_id: data.id }
             : recipe;
         }),
       }));
@@ -50,6 +68,21 @@ const Recipe = (props) => {
         results: prevRecipes.results.map((recipe) => {
           return recipe.id === id
             ? { ...recipe, likes_count: recipe.likes_count - 1, like_id: null }
+            : recipe;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const handleUnbookmark = async () => {
+    try {
+      await axiosRes.delete(`/bookmarks/${save_id}/`);
+      setRecipes((prevRecipes) => ({
+        ...prevRecipes,
+        results: prevRecipes.results.map((recipe) => {
+          return recipe.id === id
+            ? { ...recipe, save_id: null }
             : recipe;
         }),
       }));
@@ -81,22 +114,22 @@ const Recipe = (props) => {
               placement="top"
               overlay={<Tooltip>You can't like your own recipe!</Tooltip>}
             >
-              <i className="far fa-heart" />
+              <i className="fa-solid fa-thumbs-up" />
             </OverlayTrigger>
           ) : like_id ? (
             <span onClick={handleUnlike}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
+              <i className={`fa-solid fa-thumbs-up ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
             <span onClick={handleLike}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
+              <i className={`fa-regular fa-thumbs-up ${styles.HeartOutline}`} />
             </span>
           ) : (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Log in to like recipes!</Tooltip>}
             >
-              <i className="far fa-heart" />
+              <i className="fa-solid fa-thumbs-up" />
             </OverlayTrigger>
           )}
           {likes_count}
@@ -110,34 +143,34 @@ const Recipe = (props) => {
             {is_owner ? (
               <OverlayTrigger
                 placement="top"
-                overlay={<Tooltip>You can't bookmrks your own recipe!</Tooltip>}
+                overlay={<Tooltip>You can't bookmark your own recipe!</Tooltip>}
               >
-                <i className="fa-regular fa-bookmark" />
+                <i className="fa-solid fa-bookmark" />
               </OverlayTrigger>
             ) : save_id ? (
-              <span onClick={() => {}}>
-                <i className={`fa-regular fa-bookmark ${styles.Heart}`} />
+              <span onClick={handleUnbookmark}>
+                <i className={`fa-solid fa-bookmark ${styles.Heart}`} />
               </span>
             ) : currentUser ? (
-              <span onClick={() => {}}>
-                <i className={`fa-solid fa-bookmark ${styles.HeartOutline}`} />
+              <span onClick={handleBookmark}>
+                <i className={`fa-regular fa-bookmark ${styles.HeartOutline}`} />
               </span>
             ) : (
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Log in to bookmark recipe!</Tooltip>}
               >
-                <i className="fa-regular fa-bookmark" />
+                <i className="fa-solid fa-bookmark" />
               </OverlayTrigger>
             )}
 
         </div>
         
-      <Card.Body>
-        {name && <Card.Title className="text-center">{name}</Card.Title>}
-        {ingredients && <Card.Text>{ingredients}</Card.Text>}
-        {steps && <Card.Text>{steps}</Card.Text>}
-      </Card.Body>
+          <Card.Body>
+            {name && <Card.Title class="font-weight-bold">{name}</Card.Title>}
+            {ingredients && <Card.Text class="font-weight-normal">{ingredients}</Card.Text>}
+            {steps && <Card.Text class="font-weight-normal">{steps}</Card.Text>}
+          </Card.Body>
     </Card>
   );
 };
