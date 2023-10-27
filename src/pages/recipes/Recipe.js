@@ -46,7 +46,7 @@ const Recipe = (props) => {
  
   const handleBookmark = async () => {
     try {
-      const { data } = await axiosRes.post("/bookmarks/", { recipe: id });
+      const { data } = await axiosRes.post("/saved/", { recipe: id });
       setRecipes((prevRecipes) => ({
         ...prevRecipes,
         results: prevRecipes.results.map((recipe) => {
@@ -77,7 +77,7 @@ const Recipe = (props) => {
   };
   const handleUnbookmark = async () => {
     try {
-      await axiosRes.delete(`/bookmarks/${save_id}/`);
+      await axiosRes.delete(`/saved/${save_id}/`);
       setRecipes((prevRecipes) => ({
         ...prevRecipes,
         results: prevRecipes.results.map((recipe) => {
