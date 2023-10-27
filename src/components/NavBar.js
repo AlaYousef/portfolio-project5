@@ -33,7 +33,7 @@ function NavBar() {
       <i class="fa-solid fa-bars-staggered"></i> Feed
     </NavLink>
 
-    <NavLink to="/saved" className={styles.NavLink} activeClassName={styles.Active} >
+    <NavLink to="/bookmarks" className={styles.NavLink} activeClassName={styles.Active} >
       <i class="fa-regular fa-bookmark"></i> Saved
     </NavLink>
 

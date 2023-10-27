@@ -22,10 +22,12 @@ function App() {
             <Switch>
               <Route exact path="/" render={() => <RecipesPage 
                 message="No results found, adjust the search keyword" />} />
+              
               <Route exact path="/feed" render={() => <RecipesPage 
                 message="No results found, adjust the search keyword or follow a user" 
                 filter={`owner__followed__owner__profile=${profile_id}&`} />} />
-              <Route exact path="/saved" render={() => <RecipesPage 
+              
+              <Route exact path="/bookmarks" render={() => <RecipesPage 
                 message="No results found, adjust the search keyword or follow a user" 
                 filter={`bookmarks__owner__profile=${profile_id}&ordering=-bookmarks__created_at&`} />} />
               
