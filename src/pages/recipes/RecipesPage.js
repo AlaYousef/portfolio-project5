@@ -12,6 +12,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
 import Recipe from "./Recipe";
 import Asset from "../../components/Asset";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function RecipesPage({ message, filter = "" }) {
   const [recipes, setRecipes] = useState({ results: [] });
@@ -32,7 +34,13 @@ function RecipesPage({ message, filter = "" }) {
     };
 
     setHasLoaded(false);
-    fetchRecipes();
+    const timer = setTimeout(() => {
+      fetchRecipes();
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [filter, query, pathname]);
 
   return (
@@ -57,17 +65,23 @@ function RecipesPage({ message, filter = "" }) {
          {/* check if the data has been loaded first*/} 
         {hasLoaded ? (
           <>
-            {recipes.results.length ? (
-              recipes.results.map((recipe) => (
+          {recipes.results.length ? (
+            <InfiniteScroll
+              children={recipes.results.map((recipe) => (
                 <Recipe key={recipe.id} {...recipe} setRecipes={setRecipes} />
-              ))
-            ) : (
-              <Container className={appStyles.Content}>
-                <Asset src={NoResults} message={message} />
-              </Container>
-            )}
-          </>
-        ) : (
+              ))}
+              dataLength={recipes.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!recipes.next}
+              next={() => fetchMoreData(recipes, setRecipes)}
+            />
+          ) : (
+            <Container className={appStyles.Content}>
+              <Asset src={NoResults} message={message} />
+            </Container>
+          )}
+        </>
+           ) : (
           <Container className={appStyles.Content}>
             <Asset spinner />
           </Container>
