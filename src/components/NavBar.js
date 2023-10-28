@@ -23,7 +23,7 @@ function NavBar() {
     }
   };
 
-  const addPostIcon = (
+  const addRecipeIcon = (
     <NavLink to="/recipes/create" className={styles.NavLink} activeClassName={styles.Active} >
         <i class="fa-solid fa-plus"></i> New Recipe
     </NavLink>
@@ -34,7 +34,7 @@ function NavBar() {
     </NavLink>
 
     <NavLink to="/bookmarks" className={styles.NavLink} activeClassName={styles.Active} >
-      <i class="fa-regular fa-bookmark"></i> Saved
+      <i class="fa-regular fa-bookmark"></i> Bookmarked
     </NavLink>
 
     <NavLink to="/" className={styles.NavLink} onClick={handleSignOut}>
@@ -67,8 +67,8 @@ function NavBar() {
         <Navbar.Toggle aria-controls="navbarScroll"  onClick={() => setExpanded(!expanded)} ref={ref}/>
           <Navbar.Collapse id="navbarScroll">
             <Nav className="ml-auto text-left justify-content-center">
-              {currentUser && addPostIcon}
-              <NavLink to="/" className={styles.NavLink} activeClassName={styles.Active} ><i className="fa-solid fa-house"></i> Home</NavLink>
+              {currentUser && addRecipeIcon}
+              <NavLink to="/" className={styles.NavLink} activeClassName={styles.Active} > <i className="fas fa-home"></i> Home</NavLink>
               {currentUser ? loggedInIcons : loggedOutIcons}
             </Nav>
           </Navbar.Collapse>
