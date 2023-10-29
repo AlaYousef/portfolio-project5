@@ -47,7 +47,7 @@ function RecipesPage({ message, filter = "" }) {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles mobile</p>
-
+        {/* Search Bar filter*/} 
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -62,10 +62,11 @@ function RecipesPage({ message, filter = "" }) {
           />
         </Form>
 
-         {/* check if the data has been loaded first*/} 
+         {/* check if the data has been loaded first and lists posts*/} 
         {hasLoaded ? (
           <>
           {recipes.results.length ? (
+          /* addnig InfinitScroll component*/
             <InfiniteScroll
               children={recipes.results.map((recipe) => (
                 <Recipe key={recipe.id} {...recipe} setRecipes={setRecipes} />
