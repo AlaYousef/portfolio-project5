@@ -43,6 +43,7 @@ function RecipePage() {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles for mobile</p>
         <Recipe {...recipe.results[0]} setRecipes={setRecipe} recipePage />
+        {/* Comment container */}
         <Container className={appStyles.Content}>
         {currentUser ? (
           <CommentCreateForm

@@ -187,9 +187,11 @@ const Recipe = (props) => {
           </div>
           
             <Card.Body>
-              {name && <Card.Title class="font-weight-bold">{name}</Card.Title>}
-              {ingredients && <Card.Text class="font-weight-normal">{ingredients}</Card.Text>}
-              {steps && <Card.Text class="font-weight-normal">{steps}</Card.Text>}
+              {name && <Card.Title className="font-weight-bold"> Recipe: {name}</Card.Title>}
+              <span>Ingredients:</span> {ingredients && <Card.Text className="font-weight-normal">
+               {ingredients}</Card.Text>}
+               <span>Directions:</span> {steps && <Card.Text className="font-weight-normal"> 
+                {steps}</Card.Text>}
             </Card.Body>
       </Card>
     
