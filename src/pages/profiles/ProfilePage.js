@@ -14,14 +14,16 @@ import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import {
-  useProfileData,
-  useSetProfileData,
-} from "../../contexts/ProfileDataContext";
+import { useProfileData, useSetProfileData,} from "../../contexts/ProfileDataContext";
 import { Button, Image } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Recipe from "../recipes/Recipe";
+import { fetchMoreData } from "../../utils/utils";
+import NoResults from "../../assets/no-results.png";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [profileRecipes, setProfileRecipes] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const setProfileData = useSetProfileData();
@@ -32,13 +34,15 @@ function ProfilePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }] = await Promise.all([
+        const [{ data: pageProfile }, { data: profileRecipes }] = await Promise.all([
           axiosReq.get(`/profiles/${id}/`),
+          axiosReq.get(`/recipes/?owner__profile=${id}`),
         ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
+        setProfileRecipes(profileRecipes);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -101,8 +105,24 @@ function ProfilePage() {
   const mainProfileRecipes = (
     <>
       <hr />
-      <p className="text-center">Profile owner's posts</p>
+      <p className="text-center">{profile?.owner}'s Recipes</p>
       <hr />
+      {profileRecipes.results.length ? (
+        <InfiniteScroll
+          children={profileRecipes.results.map((recipe) => (
+            <Recipe key={recipe.id} {...recipe} setRecipes={setProfileRecipes} />
+          ))}
+          dataLength={profileRecipes.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profileRecipes.next}
+          next={() => fetchMoreData(profileRecipes, setProfileRecipes)}
+        />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`No results found, ${profile?.owner} hasn't posted yet.`}
+        />
+      )}
     </>
   );
 
