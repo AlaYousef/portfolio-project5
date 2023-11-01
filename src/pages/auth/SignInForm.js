@@ -16,6 +16,7 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
+import { setTokenTimestamp } from "../../utils/utils";
 
 function SignInForm() {
   /* use the useContext fun.*/
@@ -53,6 +54,7 @@ function SignInForm() {
     try{
         const {data} = await axios.post('/dj-rest-auth/login/', signInData);
         setCurrentUser(data.user);
+        setTokenTimestamp(data);
         history.goBack();
     }catch(err){
         /* Errors conditional chaining */
