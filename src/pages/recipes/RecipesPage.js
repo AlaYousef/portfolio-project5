@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -20,8 +20,9 @@ function RecipesPage({ message, filter = "" }) {
   const [recipes, setRecipes] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-
+  
   const [query, setQuery] = useState("");
+  const currentUser = useCurrentUser();
   
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -42,7 +43,7 @@ function RecipesPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row className="h-100">
