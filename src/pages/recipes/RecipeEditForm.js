@@ -17,6 +17,7 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { NotificationManager } from 'react-notifications';
 
 function RecipeEditForm() {
   const [errors, setErrors] = useState({});
@@ -38,7 +39,7 @@ function RecipeEditForm() {
       try {
         const { data } = await axiosReq.get(`/recipes/${id}/`);
         const { name, ingredients, steps, image, is_owner } = data;
-
+    
         is_owner ? setPostData({ name, ingredients, steps, image }) : history.push("/");
       } catch (err) {
         //console.log(err);
@@ -78,6 +79,10 @@ function RecipeEditForm() {
       try {
         await axiosReq.put(`/recipes/${id}/`, formData);
         history.push(`/recipes/${id}`);
+        NotificationManager.success(
+          "Recipe updated successfully",
+          "Success!", 3000
+        );
       } catch (err) {
       //console.log(err);
       if (err.response?.status !== 401) {
@@ -119,7 +124,7 @@ function RecipeEditForm() {
         </Alert>
       ))}
 
-<Form.Group>
+      <Form.Group>
         <Form.Label>steps</Form.Label>
         <Form.Control
           as="textarea"

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+//API
 import axios from "axios";
-
+//boostrap component
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
@@ -8,24 +9,27 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
-
+//Router
 import { Link, useHistory } from "react-router-dom";
-
+//styles css
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+//contexts
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+//hooks
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
+//notification
 import { NotificationManager } from 'react-notifications';
 
 function SignInForm() {
-  /* use the useContext fun.*/
+  // use the useContext fun.
   const setCurrentUser = useSetCurrentUser();
+   // useRedirect hook to redirect if the user is logged out
   useRedirect("loggedIn");
 
-  /*Destructure the useState hook */
-
+  // Destructure the useState hook by setting the initial state object to empty strings
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -39,7 +43,7 @@ function SignInForm() {
 
   const history = useHistory();
 
-  /* onChange handler function to handle the SignInData and update the state*/
+  // Handling inputs changes 
   const handleChange = (event) => {
     setSignInData({
         ...signInData,
@@ -47,7 +51,7 @@ function SignInForm() {
     })
 }
 
-/* submit handler Post all sigip data to the api and redirect to home page*/
+  // handling submitting (post all signin data to the api and redirect to home page)
   const handleSubmit = async (event) => {
 
     /* preventDefault event so that the page doesn’t refresh. */
@@ -55,6 +59,7 @@ function SignInForm() {
     try{
         const {data} = await axios.post('/dj-rest-auth/login/', signInData);
         setCurrentUser(data.user);
+        // Displaying a success notification message after submitting the form 
         NotificationManager.success(
           "Signed in successfully ",
           "Success!", 3000
@@ -65,6 +70,7 @@ function SignInForm() {
         setErrors(err.response?.data);
     }
 }
+  // Form TextFields
   return (
     <Row className={styles.Row}>
       <Col className="my-auto p-0 p-md-2" md={8}>
@@ -87,6 +93,7 @@ function SignInForm() {
                             name="username" value={username} onChange={handleChange}/>
             </Col>
             </Form.Group>
+            {/* Displaying username field errors */}
             {errors.username?.map((message, index) => 
                 <Alert varient="warning" key={index}>{message}</Alert>
             )}
@@ -100,6 +107,7 @@ function SignInForm() {
                                 name="password" value={password} onChange={handleChange}/>
                 </Col>
             </Form.Group>
+             {/* Displaying password field errors */}
             {errors.password?.map((message, index) => 
                 <Alert varient="warning" key={index}>{message}</Alert>
             )}
@@ -107,6 +115,7 @@ function SignInForm() {
             <Button variant="primary" type="submit" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}>
                 Sign in
             </Button>
+             {/* Displaying non field errors */}
             {errors.non_field_errors?.map((message, index) => (
               <Alert key={index} variant="warning" className="mt-2">
                 {message}

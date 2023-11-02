@@ -17,6 +17,7 @@ import {
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import { NotificationManager } from 'react-notifications';
 
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
@@ -76,6 +77,10 @@ const ProfileEditForm = () => {
         ...currentUser,
         profile_image: data.image,
       }));
+      NotificationManager.success(
+        "Profile edited successfully",
+        "Success!", 3000
+      );
       history.goBack();
     } catch (err) {
       //console.log(err);

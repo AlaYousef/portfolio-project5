@@ -19,6 +19,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
+import { NotificationManager } from 'react-notifications';
 
 
 function RecipeCreateForm() {
@@ -64,6 +65,10 @@ function RecipeCreateForm() {
 
     try {
       const { data } = await axiosReq.post("/recipes/", formData);
+      NotificationManager.success(
+        "Recipe created successfully",
+        "Success!", 3000
+      );
       history.push(`/recipes/${data.id}`);
     } catch (err) {
       //console.log(err);
@@ -139,12 +144,12 @@ function RecipeCreateForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Row>
-        <Col className="py-2 p-0 p-md-2" md={5} lg={5}>
-          <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
-          >
-            <Form.Group className="text-center">
+      <Row className="mx-auto">
+       
+        <Col md={10} lg={10} className="d-none d-md-block p-0 p-md-2 mx-auto">
+        
+          <Container className={appStyles.Content}>
+          <Form.Group className="text-center">
               {image ? (
                 <>
                   <figure>
@@ -185,10 +190,7 @@ function RecipeCreateForm() {
             ))}
 
             <div className="d-md-none">{textFields}</div>
-          </Container>
-        </Col>
-        <Col md={7} lg={6} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
+            {textFields}</Container>
         </Col>
       </Row>
     </Form>

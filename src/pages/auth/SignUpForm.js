@@ -28,11 +28,12 @@ const SignUpForm = () => {
         })
     }
     
-    /* Post all sigup data to the api and redirect to sign in page*/
+    // handling submitting (post all signin data to the api and redirect to sign in page)
     const handleSubmit = async (event) => {
         event.preventDefault();
         try{
             await axios.post('/dj-rest-auth/registration/', signUpData);
+            // Displaying a success notification message after submitting the form 
             NotificationManager.success(
               "Signed up successfully ",
               "Success!", 3000
@@ -43,6 +44,7 @@ const SignUpForm = () => {
             setErrors(err.response?.data)
         }
     }
+  //Form TextFields
   return (
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={8}>
@@ -66,6 +68,7 @@ const SignUpForm = () => {
                             name="username" value={username} onChange={handleChange}/>
             </Col>
             </Form.Group>
+             {/* Displaying username field errors */}
             {errors.username?.map((message, index) => 
                 <Alert varient="warning" key={index}>{message}</Alert>
             )}
@@ -79,6 +82,7 @@ const SignUpForm = () => {
                                 name="password1" value={password1} onChange={handleChange}/>
                 </Col>
             </Form.Group>
+             {/* Displaying password field errors */}
             {errors.password1?.map((message, index) => 
                 <Alert varient="warning" key={index}>{message}</Alert>
             )}
@@ -99,6 +103,7 @@ const SignUpForm = () => {
             <Button variant="primary" type="submit" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}>
                 Sign up
             </Button>
+             {/* Displaying password2 field errors */}
             {errors.non_field_errors?.map((message, index) => (
               <Alert key={index} variant="warning" className="mt-2">
                 {message}
