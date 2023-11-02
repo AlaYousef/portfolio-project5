@@ -27,24 +27,28 @@ function NavBar() {
 
   const addRecipeIcon = (
     <NavLink to="/recipes/create" className={styles.NavLink} activeClassName={styles.Active} >
-        <i class="fa-solid fa-plus"></i> New Recipe
+        <i className="fa-solid fa-plus"></i> New Recipe
     </NavLink>
   )
   const loggedInIcons = <>
     <NavLink to="/feed" className={styles.NavLink} activeClassName={styles.Active} >
-      <i class="fa-solid fa-bars-staggered"></i> Feed
+      <i className="fa-solid fa-bars-staggered"></i> Feed
     </NavLink>
 
     <NavLink to="/bookmarks" className={styles.NavLink} activeClassName={styles.Active} >
-      <i class="fa-regular fa-bookmark"></i> Bookmarked
+      <i className="fa-regular fa-bookmark"></i> Bookmarked
     </NavLink>
 
     <NavLink to="/" className={styles.NavLink} onClick={handleSignOut}>
-      <i class="fa-solid fa-right-from-bracket"></i> Sign out
+      <i className="fa-solid fa-right-from-bracket"></i> Sign out
     </NavLink>
 
     <NavLink to={`/profiles/${currentUser?.profile_id}`} className={styles.ProfileNavLink} >
      <Avatar src={currentUser?.profile_image} height={45} text="profile"/>
+    </NavLink>
+
+    <NavLink to="/contacts" className={styles.NavLink} activeClassName={styles.Active}>
+      <i className="fa-solid fa-envelope"></i>Contact us
     </NavLink>
   </>
   const loggedOutIcons = (

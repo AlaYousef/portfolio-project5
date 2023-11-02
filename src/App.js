@@ -15,6 +15,9 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import NotFound from "./components/NotFound";
+import ContactCreateForm from "./pages/contacts/ContactCreateForm";
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -23,7 +26,8 @@ function App() {
   
         <div className={styles.App}>
           <NavBar />
-          <Container className={styles.Main}>
+          <Container className={styles.Main}>'
+          <NotificationContainer />
             <Switch>
               <Route exact path="/" render={() => (<RecipesPage 
                 message="No results found. Adjust the search keyword." />)} />
@@ -49,7 +53,9 @@ function App() {
               <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
               <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />
               <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
+              <Route exact path="/contacts" render={() => <ContactCreateForm />} />
 
+              
               <Route render={() => <NotFound />} />
             </Switch>
           </Container>

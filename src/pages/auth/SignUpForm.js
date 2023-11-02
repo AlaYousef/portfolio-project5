@@ -6,7 +6,7 @@ import appStyles from "../../App.module.css";
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
-
+import { NotificationManager } from 'react-notifications';
 
 const SignUpForm = () => {
     useRedirect("loggedIn");
@@ -33,6 +33,10 @@ const SignUpForm = () => {
         event.preventDefault();
         try{
             await axios.post('/dj-rest-auth/registration/', signUpData);
+            NotificationManager.success(
+              "Signed up successfully ",
+              "Success!", 3000
+            );
             history.push('/signin');
         }catch(err){
             /* Errors conditional chaining */
