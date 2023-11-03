@@ -1,12 +1,20 @@
 import React from "react";
-import styles from "../../styles/Recipe.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+//React boostrap component
 import { Card, Media, OverlayTrigger, Tooltip} from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
-import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
-import { MoreDropdown } from "../../components/MoreDropdown";
+//styles css
+import styles from "../../styles/Recipe.module.css";
+//contexts
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+//Router
+import { Link, useHistory } from "react-router-dom";
+//Components
+import { MoreDropdown } from "../../components/MoreDropdown";
+import Avatar from "../../components/Avatar";
+//API
+import { axiosRes } from "../../api/axiosDefaults";
+
+//Destrucure props obj
 const Recipe = (props) => {
   const {
     id,
@@ -25,15 +33,16 @@ const Recipe = (props) => {
     recipePage,
     setRecipes,
   } = props;
-
+  // Get the current user from CurrentUserContext and check if is the owner
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
+  //handling recipe editing
   const handleEdit = () => {
     history.push(`/recipes/${id}/edit`);
   };
-
+  //handling recipe deletion
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/recipes/${id}/`);
@@ -42,6 +51,7 @@ const Recipe = (props) => {
       //console.log(err);
     }
   };
+  //handling recipe like
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { recipe: id });
@@ -58,7 +68,7 @@ const Recipe = (props) => {
     }
   };
 
- 
+ //handling recipe bookmark
   const handleBookmark = async () => {
     try {
       const { data } = await axiosRes.post("/bookmarks/", { recipe: id });
@@ -74,7 +84,7 @@ const Recipe = (props) => {
       //console.log(err);
     }
   };
-
+  //handling recipe Unlike
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -90,6 +100,7 @@ const Recipe = (props) => {
       //console.log(err);
     }
   };
+  //handling recipe unBookmark
   const handleUnbookmark = async () => {
     try {
       await axiosRes.delete(`/bookmarks/${save_id}/`);
@@ -129,6 +140,7 @@ const Recipe = (props) => {
         </Link>
 
         <div className="d-flex align-items-left">
+          {/* check if current user is the owner so owners cann't like/unlike their own recipe */}
             {is_owner ? (
               <OverlayTrigger
                 placement="top"
@@ -152,14 +164,16 @@ const Recipe = (props) => {
                 <i className="fa-solid fa-thumbs-up" />
               </OverlayTrigger>
             )}
+            {/* displayong number of Likes */}
             {likes_count}
 
             
             <Link to={`/recipes/${id}`}>
               <i className="far fa-comments" />
             </Link>
+             {/* dispalying number of comments */}
             {comments_count}
-            
+            {/* check if current user is the owner so owners cann't bookmarks their own recipe */}
               {is_owner ? (
                 <OverlayTrigger
                   placement="top"

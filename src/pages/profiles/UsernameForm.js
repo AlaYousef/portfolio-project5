@@ -1,29 +1,37 @@
 import React, { useEffect, useState } from "react";
-
+//React boostrap component
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-
+//styles css
+import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
+//router
 import { useHistory, useParams } from "react-router-dom";
+//API
 import { axiosRes } from "../../api/axiosDefaults";
+//Cotexts
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
+//Notifications
+import { NotificationManager } from 'react-notifications';
 
-import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
 
 const UsernameForm = () => {
+  //unitial UseState variable
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
+  // get id from the URL 
   const { id } = useParams();
 
+  //get and set current user from context
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
@@ -35,12 +43,19 @@ const UsernameForm = () => {
     }
   }, [currentUser, history, id]);
 
+  //handling submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      //update username
       await axiosRes.put("/dj-rest-auth/user/", {
         username,
       });
+      NotificationManager.success(
+        "username updated successfully",
+        "Success!", 3000
+      );
+      //update the state
       setCurrentUser((prevUser) => ({
         ...prevUser,
         username,

@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+//react boostrap componets
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+//styles css
 import appStyles from "../../App.module.css";
 import styles from "../../styles/RecipesPage.module.css";
+//router
 import { useLocation } from "react-router";
+//API
 import { axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.png";
+//componets
 import Recipe from "./Recipe";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+//utils
+import { fetchMoreData } from "../../utils/utils";
 
 function RecipesPage({ message, filter = "" }) {
+  // useState variables
   const [recipes, setRecipes] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -25,9 +32,11 @@ function RecipesPage({ message, filter = "" }) {
   const currentUser = useCurrentUser();
   
   useEffect(() => {
+    // async function to fetch recipes
     const fetchRecipes = async () => {
       try {
         const { data } = await axiosReq.get(`/recipes/?${filter}search=${query}`);
+        //update the setRecipes state
         setRecipes(data);
         setHasLoaded(true);
       } catch (err) {
@@ -36,6 +45,7 @@ function RecipesPage({ message, filter = "" }) {
     };
 
     setHasLoaded(false);
+    // Add timer to delay the fetch Recipes function by 1 sec.
     const timer = setTimeout(() => {
       fetchRecipes();
     }, 1000);

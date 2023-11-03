@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-
+//React boostrap component
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -7,36 +7,43 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-
+//componets
 import Asset from "../../components/Asset";
 
 import Upload from "../../assets/upload.png";
 
-import styles from "../../styles/RecipeCreateEditForm.module.css";
+//styles css
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory } from "react-router";
+//API
 import { axiosReq } from "../../api/axiosDefaults";
+//hooks
 import { useRedirect } from "../../hooks/useRedirect";
+//Notifications
 import { NotificationManager } from 'react-notifications';
 
 
 function RecipeCreateForm() {
+  // redirect if the user is logged out using the useRedirect hook 
   useRedirect("loggedOut");
+  // initial state for errors and postdata objects respectivly
   const [errors, setErrors] = useState({});
-
   const [postData, setPostData] = useState({
     name: "",
     ingredients: "",
     steps: "",
     image: "",
   });
+
+  //destructure the values od postData variables
   const { name, ingredients, steps, image } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
 
+  //handling inputFields changes
   const handleChange = (event) => {
     setPostData({
       ...postData,
@@ -44,6 +51,7 @@ function RecipeCreateForm() {
     });
   };
 
+  //handling image changes
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -54,6 +62,7 @@ function RecipeCreateForm() {
     }
   };
 
+  //handling form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -64,7 +73,9 @@ function RecipeCreateForm() {
     formData.append("image", imageInput.current.files[0]);
 
     try {
+      //post new changes to the API
       const { data } = await axiosReq.post("/recipes/", formData);
+      //display success notificatiom msg aget creation
       NotificationManager.success(
         "Recipe created successfully",
         "Success!", 3000
@@ -87,6 +98,7 @@ function RecipeCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+       {/*Displaying name field errors */} 
       {errors?.name?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
@@ -103,13 +115,14 @@ function RecipeCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {/*Displaying ingredients field errors */} 
       {errors?.ingredients?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
 
-<Form.Group>
+      <Form.Group>
         <Form.Label>steps</Form.Label>
         <Form.Control
           as="textarea"
@@ -119,6 +132,7 @@ function RecipeCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {/*Displaying steps field errors */} 
       {errors?.steps?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
@@ -133,6 +147,7 @@ function RecipeCreateForm() {
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
         create
       </Button>
+      {/*Displaying non field errors */} 
       {errors.non_field_errors?.map((message, index) => (
               <Alert key={index} variant="warning" className="mt-2">
                 {message}
@@ -183,6 +198,7 @@ function RecipeCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
+            {/*Displaying any errors in image field */} 
             {errors?.image?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}

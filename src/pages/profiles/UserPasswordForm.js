@@ -1,32 +1,40 @@
 import React, { useEffect, useState } from "react";
-
+//React boostrap components
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-
-import { useHistory, useParams } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
+//styles css
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+//router
+import { useHistory, useParams } from "react-router-dom";
+//API
+import { axiosRes } from "../../api/axiosDefaults";
+//contexts
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+//Notifications
+import { NotificationManager } from 'react-notifications';
 
 const UserPasswordForm = () => {
   const history = useHistory();
+  // get id from the URL 
   const { id } = useParams();
+  // get current user form useCurrentUser context
   const currentUser = useCurrentUser();
-
+  //initial state for  userData object
   const [userData, setUserData] = useState({
     new_password1: "",
     new_password2: "",
   });
+  //destructure  new_password1, new_password2 from userData obj
   const { new_password1, new_password2 } = userData;
 
   const [errors, setErrors] = useState({});
 
+  //handling inputs changes
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -36,15 +44,21 @@ const UserPasswordForm = () => {
 
   useEffect(() => {
     if (currentUser?.profile_id?.toString() !== id) {
-      // redirect user if they are not the owner of this profile
+      // redirect user if he is not the owner of this profile
       history.push("/");
     }
   }, [currentUser, history, id]);
 
+  //handling form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      //post the new changes to the API
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
+      NotificationManager.success(
+        "password updated successfully",
+        "Success!", 3000
+      );
       history.goBack();
     } catch (err) {
       //console.log(err);

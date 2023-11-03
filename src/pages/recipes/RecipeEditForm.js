@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+//React boostrap components
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -6,20 +7,24 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-
-import Asset from "../../components/Asset";
-
-import Upload from "../../assets/upload.png";
-
+//styles css
 import styles from "../../styles/RecipeCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
+//components
+import Asset from "../../components/Asset";
+//images
+import Upload from "../../assets/upload.png";
+//router
 import { useHistory, useParams } from "react-router";
+//API
 import { axiosReq } from "../../api/axiosDefaults";
+//Notification
 import { NotificationManager } from 'react-notifications';
 
 function RecipeEditForm() {
+  // initial state for errors and postdata objects respectivly
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -28,6 +33,7 @@ function RecipeEditForm() {
     steps: "",
     image: "",
   });
+  //destructure the values od postData variables
   const { name, ingredients, steps, image } = postData;
 
   const imageInput = useRef(null);
@@ -48,13 +54,15 @@ function RecipeEditForm() {
 
     handleMount();
   }, [history, id]);
+
+  //handling inputFields changes
   const handleChange = (event) => {
     setPostData({
       ...postData,
       [event.target.name]: event.target.value,
     });
   };
-
+  //handling image changes
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -64,8 +72,8 @@ function RecipeEditForm() {
       });
     }
   };
-
-  const handleSubmit = async (event) => {
+  //handling form sumbmission
+   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
@@ -77,6 +85,7 @@ function RecipeEditForm() {
       }
   
       try {
+        //post updated changes to API
         await axiosReq.put(`/recipes/${id}/`, formData);
         history.push(`/recipes/${id}`);
         NotificationManager.success(

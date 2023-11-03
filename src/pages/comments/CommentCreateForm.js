@@ -1,21 +1,27 @@
 import React, { useState } from "react";
+//Router
 import { Link } from "react-router-dom";
-
+//React boostrap  components
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-
+//styles css
 import styles from "../../styles/CommentCreateEditForm.module.css";
+//components
 import Avatar from "../../components/Avatar";
+//API
 import { axiosRes } from "../../api/axiosDefaults";
 
+//Destructure props obj
 function CommentCreateForm(props) {
   const { recipe, setRecipe, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
 
+  //Handling comment textField changes
   const handleChange = (event) => {
     setContent(event.target.value);
   };
 
+  //Handling Form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -45,6 +51,7 @@ function CommentCreateForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
+        {/* Link to the user's profile */}
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profileImage} />
           </Link>

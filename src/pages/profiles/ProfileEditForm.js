@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
-
+//React boostrap component
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
@@ -8,35 +8,42 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-
+//styles css
+import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
+//API
 import { axiosReq } from "../../api/axiosDefaults";
+//Contexts
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
-
-import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
+//Notifications
 import { NotificationManager } from 'react-notifications';
 
 const ProfileEditForm = () => {
+  //get and set currentUser obj
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  // get id from the URL 
   const { id } = useParams();
+  // useHistory hook to handle navigation history
   const history = useHistory();
   const imageFile = useRef();
-
+  // initial state of the profileData object with empty strings
   const [profileData, setProfileData] = useState({
     name: "",
     content: "",
     image: "",
   });
+  // Destructuring values from the profileData object
   const { name, content, image } = profileData;
-
+  //initial state for errors obj
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const handleMount = async () => {
+      // If the current user is exist (logged in)
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
@@ -54,6 +61,7 @@ const ProfileEditForm = () => {
     handleMount();
   }, [currentUser, history, id]);
 
+  //handling inputs fields changes
   const handleChange = (event) => {
     setProfileData({
       ...profileData,
@@ -61,6 +69,7 @@ const ProfileEditForm = () => {
     });
   };
 
+  //Handling form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();

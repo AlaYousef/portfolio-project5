@@ -1,20 +1,25 @@
 import React, { useState } from "react";
-
+//React boostrap component
 import Form from "react-bootstrap/Form";
+//API
 import { axiosRes } from "../../api/axiosDefaults";
-
+//styles css
 import styles from "../../styles/CommentCreateEditForm.module.css";
-
+// Notifications
+import { NotificationManager } from "react-notifications";
 
 function CommentEditForm(props) {
-
+  // Destructure the props obj
   const { id, content, setShowEditForm, setComments } = props;
+  //Define useState variables
   const [formContent, setFormContent] = useState(content);
 
+  //handling comment textField changes
   const handleChange = (event) => {
     setFormContent(event.target.value);
   };
 
+  //handling form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -34,6 +39,7 @@ function CommentEditForm(props) {
         }),
       }));
       setShowEditForm(false);
+      NotificationManager.info("Comment edited successfully");
     } catch (err) {
       //console.log(err);
     }
