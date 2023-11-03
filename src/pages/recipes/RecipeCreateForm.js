@@ -9,10 +9,9 @@ import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 //componets
 import Asset from "../../components/Asset";
-
 import Upload from "../../assets/upload.png";
-
 //styles css
+import styles from "../../styles/RecipeCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
@@ -160,11 +159,11 @@ function RecipeCreateForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Row className="mx-auto">
-       
-        <Col md={10} lg={10} className="d-none d-md-block p-0 p-md-2 mx-auto">
-        
-          <Container className={appStyles.Content}>
-          <Form.Group className="text-center">
+      <Col className="py-2 p-0 p-md-2" md={5} lg={5}>
+          <Container
+            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+          >
+             <Form.Group className="text-center">
               {image ? (
                 <>
                   <figure>
@@ -204,9 +203,12 @@ function RecipeCreateForm() {
                 {message}
               </Alert>
             ))}
-
+       
             <div className="d-md-none">{textFields}</div>
-            {textFields}</Container>
+           </Container>
+        </Col>
+        <Col md={7} lg={6} className="d-none d-md-block p-0 p-md-2">
+          <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
     </Form>

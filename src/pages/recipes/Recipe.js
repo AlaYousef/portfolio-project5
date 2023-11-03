@@ -13,6 +13,8 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 import Avatar from "../../components/Avatar";
 //API
 import { axiosRes } from "../../api/axiosDefaults";
+//Notifications
+import { NotificationManager } from 'react-notifications';
 
 //Destrucure props obj
 const Recipe = (props) => {
@@ -46,6 +48,10 @@ const Recipe = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/recipes/${id}/`);
+      NotificationManager.success(
+        "Recipe deleted successfully",
+        "Success!", 3000
+      );
       history.goBack();
     } catch (err) {
       //console.log(err);
