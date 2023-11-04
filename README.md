@@ -2,7 +2,7 @@
 
 
 
-# Healthy - Healthy Recipes community
+# Healthy - Healthy cooking recipes community
 
 ![Responsive image](documentation/readme_images/responsive.png)<br>
 
@@ -169,53 +169,14 @@ The fully deployed project can be accessed at [Here](https://pp4-yummy-d1fe3ffd7
 
 [Back to top](<#contents>)
 
-
-## Logic
-
-### Flowcharts 
-This is the flowchart diagram for my website, represent how the system work step by step. The charts were generated using [Lucidchart](https://lucid.app/) <br>
-
-![Flowcharts](documentation/readme_images/flowchart-pp4.png)<br>
-
-### Database Design
-
-![ER Diagram](documentation/readme_images/ER-pp4.png)<br>
-
-
-[Back to top](<#contents>)
-
 ## Agile Methodology
-The project was developed using the Agile methodology. Product backlog is detailed into three levels:<br>
+The project was developed using Agile methodology. Product backlog is detailed into three levels:<br>
 * Epics which is a large quantities of related work, which were five epics for the project. Each of them has a list of features.
-* A feature, is a service that delivers value to the end user. 
-* Each feature is broken down into a number simpler tasks which are user stories. 
+* A feature, which is a service that delivers value to end users. 
+* Each feature is broken down into a number of simpler tasks which are user stories. 
 
-As the user stories were achieved, they were moved from To Do list, to In-Progress, and finally Done lists. You can have a look to the project board [here](https://github.com/users/AlaYousef/projects/4/views/1?layout=board)
+As the user stories were achieved, they were moved from To Do list, to In-Progress, and finally Done lists. You can have a look to the project board [here](https://github.com/users/AlaYousef/projects/5/views/1)
 
-<details>
-<summary>Sprints Details</summary>
-
-* **Sprint 1 - SETTING-UP**<br>
-    -Setup Django<br>
-    -Deploy on heroku<br><br>
-* **Sprint 2 - SITE MANAGEMENT**<br>
-    -Building The Admin Site<br><br>
-* **Sprint 3 - NAVIGATION**<br>
-    -Create a navigation menu<br>
-    -Add website logo, nav menue<br>
-    -Choose fonts, colors and background images <br><br>
-* **Sprint 4 - RECIPE INTERACTION**<br>
-    -Create recipe, comment models<br>
-    -Create Recipes list view and recipe detail view.<br>
-    -Return to Sprint 3, Implement pagenation.<br><br>
-* **Sprint 5 - USER PROFILE**<br>
-    -Implement *Register*, *Login* and *Logout* pages with forms using the django-allauth module.<br>
-    -Return to Sprint 4, Implement *Like*, *bookmark* and *comment* features.<br>
-    -Implement form for adding and updating recipes<br>
-    -Create *bookmarked* and *my recipes* pages.<br>
-    -Return to Sprint 4, Implement *delete* comment feature.<br><br>
-
-</details><br><br>
 
 [Back to top](<#contents>)
 
@@ -366,14 +327,12 @@ The testing documentation can be found at [TESTING.md](TESTING.md)
 ## Technologies Used
 ### Languages
 
-* [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides The site functionality.
 * [HTML5](https://en.wikipedia.org/wiki/HTML) - Provides site content and structure.
 * [CSS3](https://en.wikipedia.org/wiki/CSS) - Provide the website styling.
-* [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - Provides interactivity with site elements.
+* [React](https://react.dev/) - React lets to build user interfaces out of individual pieces called components.
 
 ### Frameworks & Software
-* [Bootstrap](https://getbootstrap.com/) - Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.
-* [Django](https://www.djangoproject.com/) - A model-view-template framework used to Yummy Recipes website.
+* [React Bootstrap](https://react-bootstrap-v4.netlify.app/) -React Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.
 * [Balsamiq](https://balsamiq.com/) - The Tool that used to create the wireframes.
 * [Github](https://github.com/) - Used to host and edit the website.
 * [Gitpod](https://www.gitpod.io) - The  development environment that used for the wesite development.
@@ -384,29 +343,21 @@ The testing documentation can be found at [TESTING.md](TESTING.md)
 * [Favicon](https://favicon.io/) - Used to create the favicon.
 * [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to test responsiveness.
 * [Cloudinary](https://cloudinary.com/) - A service that hosts all images in the project.
-* [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
-* [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
-* [PEP8 Validation](http://pep8online.com/) - At the time for deploying this project the PEP8 Online Validaton service was offline, therefore not used.
-* [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
 
 ### Libraries
 All libraries used for this project are listed in the requirements.txt file and have been documented below:
 
-* [asgiref](https://pypi.org/project/asgiref/) - ASGI is a standard for Python asynchronous web apps and servers to communicate with each other, and positioned as an asynchronous successor to WSGI.
 * [cloudinary](https://pypi.org/project/cloudinary/) - The Cloudinary Python SDK allows you to quickly and easily integrate your application with Cloudinary. Effortlessly optimize, transform, upload and manage your cloud's assets.
 * [dj-database-url](https://pypi.org/project/dj-database-url/) - Django database connection dictionary, populated with all the data specified in your URL.
 * [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API.
 * [Django](https://pypi.org/project/Django/) - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
 * [django-allauth](https://pypi.org/project/django-allauth/) - Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
-* [django-crispy-forms](https://pypi.org/project/django-crispy-forms/) - Used to integrate Django DRY forms in the project.
-* [django-summernote](https://pypi.org/project/django-summernote/) - Summernote is a simple WYSIWYG editor. django-summernote allows you to embed Summernote into Django very handy. Support admin mixins and widgets
 * [gunicorn](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX. It’s a pre-fork worker model ported from Ruby’s Unicorn project. The Gunicorn server is broadly compatible with various web frameworks, simply implemented, light on server resource usage, and fairly speedy.
 * [oauthlib](https://pypi.org/project/oauthlib/) - OAuthLib is a framework which implements the logic of OAuth1 or OAuth2 without assuming a specific HTTP request object or web framework.
 * [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language.
 * [PyJWT](https://pypi.org/project/PyJWT/) - A Python implementation of RFC 7519.
 * [python3-openid](https://pypi.org/project/python3-openid/) - OpenID support for modern servers and consumers.
 * [requests-oauhlib](https://pypi.org/project/requests-oauthlib/) - P    rovides first-class OAuth library support for Requests.
-* [sqlparse](https://pypi.org/project/sqlparse/) - sqlparse is a non-validating SQL parser for Python. It provides support for parsing, splitting and formatting SQL statements.
 * [urllib3](https://pypi.org/project/urllib3/) a powerful, user-friendly HTTP client for Python brings many critical features that are missing from the Python standard libraries:
 
 
