@@ -3,6 +3,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 //styles css
 import appStyles from "../../App.module.css";
+import styles from "../../styles/Profile.module.css";
 //components
 import Asset from "../../components/Asset";
 import Profile from "./Profile";
@@ -23,7 +24,7 @@ const PopularProfiles = ({ mobile }) => {
       {/* Check if the popularProfiles data loaded */}
       {popularProfiles.results.length ? (
         <>
-          <p>Most followed profiles.</p>
+          <p className={styles.Header}>Most Followed Profiles</p>
            {/* Display popularProfiles on mobiles (if mobiles var, is true)*/}
           {mobile ? (
             <div className="d-flex justify-content-around">

@@ -15,10 +15,6 @@
         * [Colours](#colours)
         * [Fonts](#fonts)
         * [Wireframes](#wireframes)
-
-* [Logic](#logic)
-     * [Flowcharts](#flowcharts)
-     * [Database Design](#database-design)
 * [Agile Methodology](#agile-methodology)
 * [Features](#features)
     * [Home Page](#home-page) 
@@ -54,26 +50,33 @@ The fully deployed project can be accessed at [Here](https://pp4-yummy-d1fe3ffd7
 
 |     EPIC               | User Story |
 |     ---                |     ---    |
-|  USER PROFILE          | As a Site User, I can register an account so that I can comment and like |
-|                        | As a Site user I can see my status if I logged in or out so that I can interact with contents by leaving comments , like and bookmark recipes|
-|                        | As a Site User, I can log in/ out so that I keep my account secure |
-|                        | As a Logged-in User I can view my bookmarked recipes in my profile so that I can find them easily each time I need them
-|                        | As a Logged-in User, I can view my published recipes so that I can manage all my added recipes from my profile |
-|  USER NAVIGATION       | As a Site User, I can navigate easily around site contents so that I know if it meets my needs |
-|                        | As a Site User, I can view paginated list of reciepes so that I can easily select one to view |
-|                        | As a Site user, I can see navigation path of the page so that I know where I am and navigate easy  |
-|  RECIPE INTERACTION     | As a Site User, I can view a list of recipes so that I can select one to read |
-|                         | As a Site User, I can click on a recipe post so that I can read full recipe details | 
-|                         | As a Site User/Admin, I can view the number of likes on each recipe so that I can see which is the most popular |
-|                          | As a Site User/Admin, I can view comments on an individual recipe so that I can read the conversation |
-|                          | As a Logged-in User, I can like or unlike recipe so that I can interact with the content|
-|                          | As a Logged-in User, I can leave comments on a recipe so that I can be involved in the conversation|
-|                          | As a Logged-in User, I can bookmark recipe so that I can save it in my profile|
-|    RECIPE MANAGEMENT     | As a Logged-in User, I can add,edit and delete my own recipe so that I can share it with other users|
-|                          | As a Site Admin, I can create, read, update and delete all recipes so that I can manage my site content and share recipes with other users|
-|                          | As a Site User, I can sort my bookmarked recipes in my profile so that I can find the most favourite one easily|
-|     SITE MANAGEMENT      | As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments|
-
+|  **User Navigation**      | As a user I can view a navbar from every page so that I can navigate easily between pages|
+|                        | As a logged out user I can see sign in and sign up options so that I can sign in/sign up|
+|                        | As a user I can navigate through pages quickly so that I can view content seamlessly without page refresh |
+|                        | As a user I can view user's avatars so that I can easily identify users of the application                                         
+|  **User Authentication**    | As a user I can create a new account so that I can access all the features for signed up users |
+|                        | As a user I can sign in to the app so that I can access functionality for logged in users |
+|                        | As a user I can tell if I am logged in or not so that I can log in if I need to |
+|                        | As a user I can maintain my logged-in status until I choose to log out so that my user experience is not compromised |
+|  **Profile Management**  | As a user I can view basic profile information so that I can check user prfile page |
+|                         | As a user I can see a list of the most followed profiles so that I can see which profiles are popular | 
+|                         | As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them |
+|                          | As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed|
+|                          | As a user I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them|
+|                          | As a logged in user I can edit my profile so that I can change my profile picture and bio|
+|                          | As a logged in user I can update my username and password so that I can change my display name and keep my profile secure|
+|    **Recipes Management**  | As a logged in user I can create recipes so that I can share my healthy recipes with the world!|
+|                          | As a user I can view the details of a single recipe so that I can learn more about it|
+|                          | As a logged in user I can like a recipe post so that I can show my support for the recipes that interest me|
+|                    | As a user I can view all the most recent recipes, ordered by most recently created first so that I am up to date with the newest one|
+|                    | As a user I can search for recipes with keywords so that I can find the recipes and user profiles I am most interested in. |
+|                    | As a logged in user I can view the recipes I liked so that I can find the recipes I enjoy the most |
+|                    | As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about |
+|                    | As an owner of a comment I can delete my comment so that I can control removal of my comment from the application |
+|                    | As an owner of a comment I can edit my comment so that I can fix or update my existing comment |
+|                    | As a logged in user I can save a recipe post so that I can show my show it when i need. |
+|                    | As a logged in user I can view the recipes I have bookmarked so that I can find the recipes I enjoy the most |
+|   **Users Contacts**   | As a user, I would like to be able to contact the admin so that I can send any issues or suggestions  |
 
 [Back to top](<#contents>)
 
@@ -105,21 +108,21 @@ The fully deployed project can be accessed at [Here](https://pp4-yummy-d1fe3ffd7
 
 <summary>Feed Page</summary>
 
-![Dinner Recipes](documentation/readme_images/Feed.png)
+![Feed](documentation/readme_images/Feed.png)
 </details>
 
 <details>
 
 <summary>Bookmark page</summary>
 
-![Sweets Recipes](documentation/readme_images/Bookmarked.png)
+![Bookmarked](documentation/readme_images/Bookmarked.png)
 </details>
 
 <details>
 
 <summary>Profile page</summary>
 
-![Coctailes Recipes](documentation/readme_images/Profile.png)
+![Profile page](documentation/readme_images/Profile.png)
 </details>
 
 
@@ -127,33 +130,40 @@ The fully deployed project can be accessed at [Here](https://pp4-yummy-d1fe3ffd7
 
 <summary>Edit Profile</summary>
 
-![Register](documentation/readme_images/Edit-profile.png)
+![Edit Profile](documentation/readme_images/Edit-profile.png)
 </details>
 
 <details>
 
 <summary>Add recipe </summary>
 
-![Log-in](documentation/readme_images/add_recipe.png)
+![Add recipe](documentation/readme_images/add_recipe.png)
+</details>
+
+<details>
+
+<summary>Edit recipe </summary>
+
+![Edit recipe](documentation/readme_images/edit-recipe.png)
 </details>
 
 <details>
 
 <summary>Sign in</summary>
 
-![Add-Recipes](documentation/readme_images/Sign-in.png)
+![Sign in](documentation/readme_images/Sign-in.png)
 </details>
 
 <details>
 <summary>Sign up </summary>
 
-![My-bookmarks](documentation/readme_images/Sign-up.png)
+![Sign up](documentation/readme_images/Sign-up.png)
 </details>
 
 <details>
 <summary>Contact us </summary>
 
-![My-bookmarks](documentation/readme_images/contact_us.png)
+![Contact us ](documentation/readme_images/contact_us.png)
 </details>
 
 
