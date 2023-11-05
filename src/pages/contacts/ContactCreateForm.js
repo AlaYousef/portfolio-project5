@@ -57,7 +57,7 @@ const ContactCreateForm = () => {
       await axiosReq.post("/contacts/", formData);
       // Displaying a success notification message after submitting the form 
       NotificationManager.success(
-        "Thank you, your message has been recieved and you will contact you by email ",
+        "Thank you, your message has been recieved and we will contact you by email ",
         "Success!", 3000
       );
       history.push("/");

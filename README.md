@@ -18,8 +18,10 @@
 * [Agile Methodology](#agile-methodology)
 * [Features](#features)
     * [Home Page](#home-page) 
-    * [Account Section](#account-section)
-    * [Dinner, Sweets, Coctailes Pages](#dinner-sweets-coctailes-pages)
+    * [Registration](#registration)
+    * [Feed](#feed)
+    * [Bookmarked](#bookmared)
+    * [Profile](#Profile)
     * [Recipe Details Page](#recipe-details-page)
     * [Add Recipe Page](#add-recipe-page) 
     * [Profile Dropdown Menu](#profile-dropdown-menu)
@@ -115,7 +117,7 @@ The fully deployed project can be accessed at [Here](https://pp4-yummy-d1fe3ffd7
 
 <summary>Bookmark page</summary>
 
-![Bookmarked](documentation/readme_images/Bookmarked.png)
+![Bookmarked](documentation/readme_images/Bookmark.png)
 </details>
 
 <details>
@@ -182,68 +184,114 @@ As the user stories were achieved, they were moved from To Do list, to In-Progre
 
 ## Features
 ### Home Page
-* Home page contain a welcome message for logged-in users with short description about the website will appear. 
-* Three recipes cards with three different categories will displayed. When the user click on one of it , will navigate to recipe list of the specific category.
-* Recent recipes will appear also at the end of the home page. On click the user clicked will navigate to the specific recipe details page.
-* Top arrow, an arrow appears at the end of the page to return back to the top of the home page for ease of navigation for users. 
+* The home page contains many features fot all users, registered or unregistered users. All recipes posts displayed on this page. So, users have the ability to read all the post content and search for a specific recipe post.
+* Registered users have the ability interact with posts such as like, leave comments, bookmark, follow and unfollow other users in addition to, send a message for questions or suggestions to website admin.
 
-![Home](documentation/readme_images/home-page.gif)<br>
+**Home Page for registered users**
+
+![Home](documentation/readme_images/home-registeredUsers.png)<br>
+
+**Home Page for unregistered users**
+
+![Home](documentation/readme_images/home-unRegisterdUers.png)<br>
 
 #### Header
 
-* Logo with site name positioned in the top left of the header section. This logo is linked to the home page to facilitate navigation for users. <br>
+* Logo with site name positioned in the top left of the header section with Add Recipe Icon beside it. This logo is linked to the home page to facilitate navigation for users. <br>
 * The navigation bar displayed at the right top of header section includes all links to the various other pages.
-* When the user logged in, profile and add-recipe links added to the navigation bar. In addnition to log-out instead of log-in/register.
+* When the user logged in, nav bar changed to displayed more links for more features (Feed, Bookmarked, Sign out, Profile and Contact us).
 * The navigation bar is fully responsive, collapsing into a hamburger on small screen sizes.<br>
 
-![Navigation Bar](documentation/readme_images/navigation-bar.png)<br><br>
+![Navigation Bar](documentation/readme_images/navbar.png)<br><br>
 
-
-#### Footer
-
-* The footer section includes links to social media, Facebook, Twitter, Instagram and Youtube.
-* Each of these links opens a separate tab on clicking to keep accessibility and stay consistent, so users know what to expect when they are navigating through the website.
-
-![Footer](documentation/readme_images/footer.png)<br>
 
 [Back to top](<#contents>)
 
 
-### Account Section
+### Registration
 * Registration, log in and log out are implemented using Django allauth library.
 
-#### Register Page
-* To register an account, users required to enter uersname, email, password and password confirmation.
-* After all information entered correctly the user will redirect to the Home page with a confirmation message "Successfully signed in as (user name)".
+#### Sign-up Page
+* To register an account, users required to enter uersname, password and password confirmation.
+* After all information entered correctly,  a confirmation message with "Successfully signed" will displayed and the users will redirected to sign in page. 
 
-![Register Page](documentation/readme_images/register.png)<br>
+![Register Page](documentation/readme_images/register.png)<br><br>
 
-![Log-in Message](documentation/readme_images/log-in-msg.png)<br><br>
+* Sign-up confirmation message.
+![Register Page](documentation/readme_images/register2.png)<br>
 
-#### Log-in Page
+#### Sign-in Page
 * Users is required to enter username and password to log in.
-* After the user enter the required information, the user will redirect to the home page with a confirmation message "Successfully signed in as (user name)".
-* Once the user logged in, new links in navigation bar will appear; _Add Recipe_, _Profile_ and _Log out_.
-![Log-in Page](documentation/readme_images/log-in.png)<br>
+* After the user enter the required information, the user will redirect to the home page with a confirmation message "Signed in successfully".
+* Once the user logged in, new links in navigation bar will appear; _Feed_, _Bookmarked_,_Sign-out_,_Profile_ and _Contact-us_.
+![Log-in Page](documentation/readme_images/sign-in1.png)<br>
 
-* Log in confirmation message.
-![Log-in Message](documentation/readme_images/log-in-msg.png)<br><br>
+* Sign in confirmation message.
+![Log-in Message](documentation/readme_images/sign-in2.png)<br><br>
 
-#### Log-out Page
-* The user asked "Are you sure you want to log out?".
-* User will redirect to the _Home_ page if the user click _yes_.
-
-![Log-out Page](documentation/readme_images/log-out.png)<br><br>
-
-* Log out confirmation message.
-![Log-out Message](documentation/readme_images/log-out-msg.png)<br>
+#### Sign-out Page
+* Users will redirect to the _Home_ page after signing out.
 
 
-### Dinner, Sweets, Coctailes Pages
- * Each of these tabs are linked to a page with list of recipes which only contain recipes within the specific category. 
- * Each of these pages has a pagination to divide the content into separate pages. The page contain max 6 recipes cards and the rest are appears in the next page. So users can navigate to them using next button and return back using previous button.
+### Feed Page
+ * Feed page has all recipes posts that posted by other users arranged from newest created one to oldest.
 
-![Recipe-Type List Page](documentation/readme_images/recipe-list.png)<br><br>
+![Feed Page](documentation/readme_images/feeds.png)<br><br>
+
+### Bookmarked Page
+ * Bookmarked page has all recipes posts that the user bookmarked,arranged from the last post has bookmarked so the user can return to it when needed.
+ * Users cann't bookmarked their own posts.
+
+![Bookmarked Page](documentation/readme_images/Bookmarked.png)<br><br>
+
+
+### Profile Page
+ * Profile page contains informations about the profile owner such as numer of posts, number of users that the owner follow and number of followers that follows this owner.
+ * In addition to, this page contains all the posts that the profile owner was created. 
+
+![Profile Page](documentation/readme_images/profile-page.png)<br><br>
+
+ * Dropdown menue with features that allows users to manage their own profile and account. these features are _edit profile_, _change username_ and _change password_ options.
+
+![Profile Dropdown menu](documentation/readme_images/profile-dropdown.png)<br><br>
+
+**1.Edit Profile**
+* Users have the ability to add/change their profile image and add/change their _BIO_.
+
+![Profile menu editing](documentation/readme_images/edit-profile-option.png)<br>
+
+* Users will get a confirmation message with "profile edited successfully" after editing.
+![Profile menu editing msg](documentation/readme_images/edit-profile-msg.png)<br><br>
+
+**2.Change Username**
+* Users have the ability change their username.
+* when choosing this option, the user will be redirect to edit username page.
+
+![Profile menu change username](documentation/readme_images/edit-username.png)<br>
+
+* After changing username and click save, users will redirect to the profile page with a confirmation message "username updated successfully".
+
+![Profile menu change username msg](documentation/readme_images/edit-username-msg.png)<br><br>
+
+**2.Change Password**
+* Users have the ability change their password by enter the new password and confirm it.
+* when choosing this option, the user will be redirect to edit password form page.
+
+![Profile menu change password](documentation/readme_images/edit-password.png)<br>
+
+* After changing password and click save, users will redirect to the profile page with a confirmation message "password updated successfully".
+
+![Profile menu change username msg](documentation/readme_images/edit-password-msg.png)<br><br>
+
+### Contact-us Page
+ * Users have the ability to contact with the site admin to send any questions or suggestions by sending a message from the contact form.
+
+![contact us Page](documentation/readme_images/contact-form.png)<br><br>
+
+* After sending the form user will get a confirmation message with "Your message has been recieved..." and redirect to the home page.
+
+![contact us Page msg](documentation/readme_images/contact-msg.png)<br><br>
+
 
 ### Recipe Details Page
 #### Recipe information 
