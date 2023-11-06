@@ -185,7 +185,7 @@ As the user stories were achieved, they were moved from To Do list, to In-Progre
 ## Features
 ### Home Page
 * The home page contains many features fot all users, registered or unregistered users. All recipes posts displayed on this page. So, users have the ability to read all the post content and search for a specific recipe post.
-* Registered users have the ability interact with posts such as like, leave comments, bookmark, follow and unfollow other users in addition to, send a message for questions or suggestions to website admin.
+* Registered users have the ability to interact with posts such as like, leave comments, bookmark, follow and unfollow other users in addition to, send a message for questions or suggestions to website admin.
 
 **Home Page for registered users**
 
@@ -204,8 +204,70 @@ As the user stories were achieved, they were moved from To Do list, to In-Progre
 
 ![Navigation Bar](documentation/readme_images/navbar.png)<br><br>
 
+#### Most Followed Profiles Section
+* A container with most followed users is displayed at the right side of the home page.
+* This container contains an avatar and username. Avatar icon is clickable so users can click on and redirect to this user's profile page and view profile content so can deciede to follow or unfollow this user later on after regestration. 
+* For logged-in users follow/unfollow buttons are displayed beside each profile name, so users can click in case to follow/unfollow.
+
+Most Followed Profiles for logged-out users
+
+![Profile container](documentation/readme_images/profile-container.png)<br>
+
+Most Followed Profiles For Logged-in users
+
+![Profile container  loggedin](documentation/readme_images/profile-container-loggedin.png)<br>
+
+
+#### Recipes Posts Section
+* Recipes posts are displayed in the home page and visible for all users.
+* All users can read posts content and detailes and have the ability to visit each recipe owner's profile.
+* Logged-in users can interact with these posts by leave a comment , like, bookmark and follow/unfollow the post owner.
+* When the user like a recipe the numbers of likes will increase by 1. Users can also unlike the recipe by clicking once more on like icon so number of likes will decrease by 1 and like will be deleted.
+* Users have the ability to bookmark a recipe by clicking on bookmark icon so this recipe will be saved in th bookmarked page.
+* Users can leave a comment by clicking on comment icon, so users can interact with each others by comments. After post the comment the number of comments will increase by 1.
+![recipe interaction](documentation/readme_images/recipe-interaction.png)<br>
+
+* If the user would like to edit/delete their own comment can do that by clicking on dropdown menu at right side of comment owner uername. 
+![Comment dropdown menu](documentation/readme_images/comment-dropdown.png)<br>
+
+* If the user click on delete icon the comment will be deleted, numbers of comment will decrease by 1 and the user will get an info message that comment deleted.
+![Comment dropdown delete msg](documentation/readme_images/comment-delete-msg.png)<br>
+
+* If the edit icon is clicked the user comment edit form will be displayed so the user can edit it.
+![Comment dropdown edit](documentation/readme_images/comment-edit.png)<br>
+
+* After editing the user will get an info message "Comment edited".
+![Comment dropdown edit msg](documentation/readme_images/comment-edit-msg.png)<br>
+
+
 
 [Back to top](<#contents>)
+
+### New Recipe Page
+* In case users would like to add a new recipe post. Users can click on _New Recipe_ link on the navbar.
+* Users will redirect to create recipe form as shown below.
+![Recipe Create Form](documentation/readme_images/recipe-form.png)<br>
+
+* If users leave a field blank, an error message will displayed to alert users to enter fill out the form before submitting.
+![Recipe Form Error](documentation/readme_images/recipe-form-error-msg.png)<br>
+
+* After filling the form correctly and click on _create_ button, the recipe post will vreated and the user will get a confirmation message "Recipe created successfully" and redirected to the recipe page. 
+![Recipe created msg](documentation/readme_images/recipe-created-msg.png)<br>
+
+* Each recipe has a dropdown menu which displayed just for the recipe owner.
+* The dropDown menu has two option, one for editing to edit the recipe amd the other for deleting to delete the recipe.
+![Recipe dropdown menu msg](documentation/readme_images/recipe-dropdown.png)<br>
+
+* When the user click on delete icon <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/trash-can.svg" width="15" height="15"> the recipe will be deleted with a confirmation message " Recipe deleted successfully", and the user will be redirected to the previous page. 
+![Recipe dropdown delete msg](documentation/readme_images/recipe-delete-msg.png)<br>
+
+* When the user click on edit icon <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svg/edit-light.svg" width="15" height="15">. User will be redirected to edit recipe form that has the recipe information so that users cad edit it and click save button.  
+![Recipe dropdown edit form](documentation/readme_images/recipe-edit-form.png)<br>
+
+* The user will get a confirmation message with "Recipe updated successfully" after editing ad redirect to the recipe details page.  
+
+![Recipe dropdown edit msg](documentation/readme_images/recipe-edit-msg.png)<br><br>
+
 
 
 ### Registration
