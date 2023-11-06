@@ -201,6 +201,11 @@ Home Page for unregistered users.
 
 ![Navigation Bar](documentation/readme_images/navbar.png)<br><br>
 
+#### Search Bar
+* Search text field is displayed at the top of the home page allowing users to seach for a specific recipe post by it's name. <br>
+
+![Search Bar](documentation/readme_images/search.png)<br><br>
+
 #### Most Followed Profiles Section
 * A container with most followed users is displayed at the right side of the home page.
 * This container contains an avatar and username. Avatar icon is clickable so users can click on and redirect to this user's profile page and view profile content so can deciede to follow or unfollow this user later on after regestration. 
