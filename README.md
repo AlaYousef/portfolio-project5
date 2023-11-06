@@ -18,19 +18,16 @@
 * [Agile Methodology](#agile-methodology)
 * [Features](#features)
     * [Home Page](#home-page) 
+    * [New Recipe Page](#new-recipe-page)
     * [Registration](#registration)
-    * [Feed](#feed)
-    * [Bookmarked](#bookmared)
-    * [Profile](#Profile)
-    * [Recipe Details Page](#recipe-details-page)
-    * [Add Recipe Page](#add-recipe-page) 
-    * [Profile Dropdown Menu](#profile-dropdown-menu)
-    * [Future Feature](#future-feature)
+    * [Feed Page](#feed-page)
+    * [Bookmarked Page](#bookmared-page)
+    * [Profile Page](#Profile-page)
+    * [Contact-us Page](#contact-us-page)
 * [Full Testing](#full-testing)
 * [Technologies Used](#technologies-used)
     * [Languages](#languages)
     * [Frameworks and Software](#frameworks-and-software)
-    * [Libraries](#libraries)
 * [Deployment](#deployment)
     * [Forking this Project](#forking-this-project)
     * [Cloning this Project](#cloning-this-project)
@@ -187,11 +184,11 @@ As the user stories were achieved, they were moved from To Do list, to In-Progre
 * The home page contains many features fot all users, registered or unregistered users. All recipes posts displayed on this page. So, users have the ability to read all the post content and search for a specific recipe post.
 * Registered users have the ability to interact with posts such as like, leave comments, bookmark, follow and unfollow other users in addition to, send a message for questions or suggestions to website admin.
 
-**Home Page for registered users**
+Home Page for registered users.
 
 ![Home](documentation/readme_images/home-registeredUsers.png)<br>
 
-**Home Page for unregistered users**
+Home Page for unregistered users.
 
 ![Home](documentation/readme_images/home-unRegisterdUers.png)<br>
 
@@ -355,78 +352,7 @@ Most Followed Profiles For Logged-in users
 ![contact us Page msg](documentation/readme_images/contact-msg.png)<br><br>
 
 
-### Recipe Details Page
-#### Recipe information 
 
-* If the user click on any recipe name for different categories, the user will navigate to the recipe detail page.
-* This page conatin all information that the user need for the recipe. Including recipe name, author, cooking/preparing time, Ingredients and steps to apply this recipe.
-* Logged-in users can save this recipe in his own profile by bookmark this recipe throw this icon 
- <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/bookmark.svg" width="15" height="15">.
-* In addition, users can like or dislike the recipe throw the icon <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/heart.svg" width="15" height="15">. When like, the number of likes for this recipe will increases.  
-
- ![Recipe Detail](documentation/readme_images/recipe-detail.gif)<br><br>
-
-#### Comments Section 
-* The website is interactive so logged-in users can leave comments on a specific recipe.
-* These comments must be approved by the site admin to be published.
-* Logged-in user can delete his own comment if needed by clicking on this icon <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/trash-can.svg" width="15" height="15"> beside the author name, and only the comment author can do that.  
-
-![Comment](documentation/readme_images/comment.png)<br>
-
-* If this Icon clicked, the user will be asked _Are you sure you want to delete this comment?_. If _Yes_ is clicked the comment will deleted and the user will stay in recipe details page. 
-
-![Comment](documentation/readme_images/comment-delete.png)<br><br>
-
-[Back to top](<#contents>)
-
-
-### Add Recipe Page
-* Users can interact with the website by adding their own recipes and this after registrering an account.
-* User required to fill the form correctly and click _submit_ button. If the user enter incorrect valid the user will be required to fill the correct values.
-* Each of time, min/hour fields are drop down so the user can select the time and click to choose if it in minutes or hours. 
-* The recipe will be published in his name, at the same time saved in _my recipes_ tab.
-
- ![add-recipe Page](documentation/readme_images/addrecipe.png)<br>
-
-* Confirmation message will be displayed to confirm the user that the recipe is successfully added.
- ![add-recipe Page](documentation/readme_images/add-recipe-msg.png)<br><br>
- 
-[Back to top](<#contents>)
-
-### Profile Dropdown Menu
-![Profil](documentation/readme_images/profile.png)<br><br>
-
-#### My Bookmarkes page
-* All bookmarkes recipes that the user bookmarked will be saved in this page. So, user can return to them any time he want. It's like a digital cookbook.
- ![Bookmarkes Page](documentation/readme_images/bookmarks.png)<br><br>
- 
-* Confirmation message will be displayed after the user click on bookmark button to confirm the user that recipe added successfully to bookmarkes page.
-![Bookmarkes message](documentation/readme_images/bookmark-msg.png)<br><br>
-
-#### My Recipes page
-* All recipes that the user has created will be saved in this page.
-* The user can mange these recipes by _Delete_ or _Edit_ these recipes.
- ![My-Recipes Page](documentation/readme_images/my-recipes.png)<br>
-* If the user decide to delete the recipe, the user will get delete confirmation to insure that the user want to delete the recipe, If _yes_ is clicked the recipe will deleted and removed from publishing and sure from this page.
-![My-Recipes Delete msg](documentation/readme_images/delete-recipe.png)<br>
-* If the user want to update his own recipe in some way, can doing that by click _Edit Recipe_ link. The user will redirect to the add recipe form  again, update it and click submit.
-![My-Recipes Edit recipe](documentation/readme_images/edit-recipe.png)<br><br>
-
-
-[Back to top](<#contents>)
-
-### Future Feature
-These user stories are labelled as "Wont Have" in Github, due to time constraints and will be implemented later.
-
-#### Add Breadcrumb User Story
-* _As a site user I can see navigation path of the page** so that I know where I am and navigate easy_
-
-* Users can easily know which page he is on and return back easily by adding links at the top of each page in hierarchical structures.
-
-#### Sort Recipes User Story
-* _As a Site User I can sort my bookmarked recipes in my profile so that I can find the most favourite one easily._
-
-* In my bookmarkes page, recipes will sorted from the most preffered one to least.
 
 ## Full Testing
 The testing documentation can be found at [TESTING.md](TESTING.md)
@@ -442,160 +368,34 @@ The testing documentation can be found at [TESTING.md](TESTING.md)
 * [React](https://react.dev/) - React lets to build user interfaces out of individual pieces called components.
 
 ### Frameworks & Software
-* [React Bootstrap](https://react-bootstrap-v4.netlify.app/) -React Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.
+* [React Bootstrap4](https://react-bootstrap-v4.netlify.app/) -React Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.
 * [Balsamiq](https://balsamiq.com/) - The Tool that used to create the wireframes.
 * [Github](https://github.com/) - Used to host and edit the website.
 * [Gitpod](https://www.gitpod.io) - The  development environment that used for the wesite development.
 * [Heroku](https://en.wikipedia.org/wiki/Heroku) - A cloud platform that that used to deploy the application.
 * [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - Used to test performance, accessibility  of site.
 * [a11y Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/) - Used to test color contrast on the website.
-* [Lucidchart](https://www.lucidchart.com/) - Used to create logical chart for the project.
 * [Favicon](https://favicon.io/) - Used to create the favicon.
 * [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to test responsiveness.
+* [Am I Responsive](https://ui.dev/amiresponsive)- Used to show the website on variuos devices.
 * [Cloudinary](https://cloudinary.com/) - A service that hosts all images in the project.
 
-### Libraries
-All libraries used for this project are listed in the requirements.txt file and have been documented below:
-
-* [cloudinary](https://pypi.org/project/cloudinary/) - The Cloudinary Python SDK allows you to quickly and easily integrate your application with Cloudinary. Effortlessly optimize, transform, upload and manage your cloud's assets.
-* [dj-database-url](https://pypi.org/project/dj-database-url/) - Django database connection dictionary, populated with all the data specified in your URL.
-* [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API.
-* [Django](https://pypi.org/project/Django/) - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
-* [django-allauth](https://pypi.org/project/django-allauth/) - Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
-* [gunicorn](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX. It’s a pre-fork worker model ported from Ruby’s Unicorn project. The Gunicorn server is broadly compatible with various web frameworks, simply implemented, light on server resource usage, and fairly speedy.
-* [oauthlib](https://pypi.org/project/oauthlib/) - OAuthLib is a framework which implements the logic of OAuth1 or OAuth2 without assuming a specific HTTP request object or web framework.
-* [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language.
-* [PyJWT](https://pypi.org/project/PyJWT/) - A Python implementation of RFC 7519.
-* [python3-openid](https://pypi.org/project/python3-openid/) - OpenID support for modern servers and consumers.
-* [requests-oauhlib](https://pypi.org/project/requests-oauthlib/) - P    rovides first-class OAuth library support for Requests.
-* [urllib3](https://pypi.org/project/urllib3/) a powerful, user-friendly HTTP client for Python brings many critical features that are missing from the Python standard libraries:
-
-
-[Back to top](<#contents>)
 
 ## Deployment
 
 The project was deployed to [Heroku](https://www.heroku.com). To deploy, please follow these steps:
 
-1. To begin with we need to create a GitHub repository from the [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template) by following the link and then click 'Use this template'.
-
-
-2. Fill in the needed details as stated in the screenshot below and then click 'Create Repository From Template'.
-
-3. When the repository creation is done click 'Gitpod' as stated in the screenshot below.
-
-
-4. Now it's time to install Django and the supporting libraries that are needed. Type the commands below to do this.
-
-* ```pip3 install 'django<4' gunicorn```
-* ```pip3 install 'dj_database_url psycopg2```
-* ```pip3 install 'dj3-cloudinary-storage```
-
-5. When Django and the libraries are installed we need to create a requirements file.
-
-* ```pip3 freeze --local > requirements.txt``` - This will create and add required libraries to requirements.txt
-
-
-6. Now it's time to create the project.
-
-* ```django-admin startproject YOUR_PROJECT_NAME .``` - This will create your project
-
-7. When the project is created we can now create the application.
-
-* ```python3 manage.py startapp APP_NAME``` - This will create your application
-
-
-8. We now need to add the application to settings.py
-
-8. Now it is time to do our first migration and run the server to test that everything works as expected. This is done by writing the commands below.
-
-* ```python3 manage.py migrate``` - This will migrate the changes
-* ```python3 manage.py runserver``` - This runs the server. To test it, click the open browser button that will be visible after the command is run.
-
-9. Now it is time to create our application on Heroku, attach a database, prepare our environment and settings.py file and setup the Cloudinary storage for our static and media files.
-
-* Head on to [Heroku](https://www.heroku.com/) and sign in (or create an account if needed).
-
-* In the top right corner there is a button that is labeled 'New'. Click that and then select 'Create new app'.
-
-10. Now it's time to enter an application name that needs to be unique. When you have chosen the name, choose your region and click 'Create app".
-
-11. To add a database to the app you need to go to the resources tab ->> add-ons, search for 'Heroku Postgres' and add it.
-
-12. Go to the settings tab and click on the reveal Config Vars button. Copy the text from DATABASE_URL (because we are going to need it in the next step).
-
-13. Go back to GitPod and create a new env.py in the top level directory. Then add these rows.
-
-* ```import os``` - This imports the os library
-* ```os.environ["DATABASE_URL_FROM HEROKU"]``` - This sets the environment variables.
-* ```os.environ["SECRET_KEY"]``` - Here you can choose whatever secret key you want.
-
-
-14. Now we are going to head back to Heroku to add our secret key to config vars. See screenshot below.
-
-
-15. Now we have some preparations to do connected to our environment and settings.py file. In the settings.py, add the following code:
-
-```import os```
-
-```import dj_database_url```
-
-```if os.path.isfile("env.py"):```
-
-```import env```
-
-
-16. In the settings file, remove the insecure secret key and replace it with:
-```SECRET_KEY = os.environ.get('SECRET_KEY')```
-
-17. Now we need to comment out the old database setting in the settings.py file (this is because we are going to use the postgres database instead of the sqlite3 database).
-
-
-Now, add the link to the DATABASE_URL that we added to the environment file earlier.
-
-18. Save all your fields and migrate the changes.
-
-```python3 manage.py migrate```
-
-19. Now we are going to get our connection to Cloudinary connection working (this is were we will store our static files). First you need to create a Cloudinary account and from the Cloudinary dashboard copy the API Environment Variable.
-
-20. Go back to the env.py file in Gitpod and add the Cloudinary url (it's very important that the url is correct):
-
-```os.environ["CLOUDINARY_URL"] = "cloudinary://************************"```
-
-21. Let's head back to Heroku and add the Cloudinary url in Config Vars. We also need to add a disable collectstatic variable to get our first deployment to Heroku to work.
-
-22. Let's head back to our settings.py file on Gitpod. We now need to add our Cloudinary Libraries we installed earlier to the installed apps. Here it is important to get the order correct.
-
-
-23. For Django to be able to understand how to use and where to store static files we need to add some extra rows to the settings.py file.
-
-24. Hang in there, we have just a couple of steps left. Now it's time to link the file to the Heroku templates directory.
-
-25. Let's change the templates directory to TEMPLATES_DIR in the teamplates array.
-
-
-26. To be able to get the application to work through Heroku we also need to add our Heroku app and localhost to which hosts that are allowed.
-
-
-27. Now we just need to add some files to Gitpod.
-
-* Create 3 folders in the top level directory: **media**, **static**, **templates**
-* Create a file called **Procfile* and add the line ```web: gunicorn PROJ_NAME.wsgi?``` to it.
-
-28. Now you can save all the files and prepare for the first commit and push to Github by writing the lines below.
+1. Now you can save all the files and prepare for the first commit and push to Github by writing the lines below.
 
 * ```git add .```
 * ```git commit -m "Deployment Commit```
 * ```git push```
 
-29. Before moving on to the Heroku deployment we just need to add one more thing in the config vars. We need to add "PORT" in the KEY input field and "8000" in the VALUE field. If we don't add this there might be problems with the deployment.
+2. Now it's time for deployment. Scroll to the top of the settings page in Heroku and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
 
-30. Now it's time for deployment. Scroll to the top of the settings page in Heroku and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
+3. Scroll down to the manual deployment section and click 'Deploy Branch'. Hopefully the deployment is successful!
 
-31. Scroll down to the manual deployment section and click 'Deploy Branch'. Hopefully the deployment is successful!
-
-The live link to the 'Yummy' site on Heroku can be found [here](https://pp4-yummy-d1fe3ffd7115.herokuapp.com/). And the Github repository can be found [here](https://github.com/AlaYousef/portfolio-project4).
+The live link to the 'Yummy' site on Heroku can be found [here](https://cooking-pp5-f4e5b26840e2.herokuapp.com/). And the Github repository can be found [here](https://github.com/AlaYousef/portfolio-project5).
 
 [Back to top](<#table-of-content>)
 
@@ -618,19 +418,6 @@ To clone and set up this project follow these steps:
 4. Enter the command git clone followed by the copied URL
 5. Your clone was created.
 
-![Clone The Project](documentation/readme_images/clone.jpg)
-
-
-5. To be able to get the project to work you need to install the requirements. This can be done by using the command below:
-
-* ```pip3 install -r requirements.txt``` - This command downloads and install all required dependencies that is stated in the requirements file.
-
-6. The next step is to set up the environment file so that the project knows what variables that needs to be used for it to work. Environment variables are usually hidden due to sensitive information. It's very important that you don't push the env.py file to Github (this can be secured by adding env.py to the .gitignore-file). The variables that are declared in the env.py file needs to be added to the Heroku config vars which are ```os.environ["DATABASE_URL"]```, ```os.environ["CLOUDINARY_URL"]```, ```os.environ["SECRET_KEY"]``` . Don't forget to do necessary migrations before trying to run the server.
-
-* ```python3 manage.py migrate``` - This will do the necessary migrations.
-* ```python3 manage.py runserver``` - If everything i setup correctly the project is now live locally.
-
-
 [Back to top](<#contents>)
 
 ## Credits
@@ -639,63 +426,28 @@ To clone and set up this project follow these steps:
 * All recipes content and details was taken from this recipes website [Delish](https://www.delish.com/)
 
 ### Resources
+* Website inspiration from [Code Institute: Moments Application](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+2021_T3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/953cd4e5015f483bb05263db3e740e19/).
+
 * Agile methodology inspired from [Knowledgehut](https://www.knowledgehut.com/blog/agile/features-in-agile-methodology).
 
-* Bug number 1 in testing; for messages does not display after editing or deleting fixed by inspiration from [stackoverflow](https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown).
 
-* Website design inspired from this [project](https://italianissimo-booking-website.herokuapp.com/).
+* User stories inspired from [Code Institute: Moments Application](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+2021_T3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/953cd4e5015f483bb05263db3e740e19/).
 
-* Deployment section in Readme file was taken from this [repository](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md). It was so clear and easy to follow so I take it as is.
+* Notification messages inspired from this application [worth-a-trip](https://worth-a-trip-drf-40e2fa952827.herokuapp.com/)
 
-* Readme documentation template inspired from these repositories [repository1](https://github.com/useriasminna/italianissimo-booking-website/tree/main) and [repository2](https://github.com/worldofmarcus/project-portfolio-4/blob/main/README.md).
-
-* User stories inspired from [Code Institute: I Think Therefore I Blog](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/b31493372e764469823578613d11036b/fe4299adcd6743328183aab4e7ec5d13/?child=last) and from this [repository](https://github.com/AliOKeeffe/PP4_My_Meal_Planner/tree/main).
-
-
-* Bugs number 9; delete comment recipes was fixed by inspiration from [stackoverflow](https://stackoverflow.com/questions/14170473/get-absolute-url-in-django-when-using-class-based-views)
+* How to add these notifications is from [DEV](https://dev.to/adyasha8105/react-notifications-33do).
 
 ### Code
 
-* Code of creating models, views and forms was inspired from [Code Institute: I Think Therefore I Blog](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/b31493372e764469823578613d11036b/09e0a94c7dbd4b969b8358a0cf5660b2/).
-
-* Code help for deleting/adding recipes is from this youtube tutorials [Learn Django Class Based Views](https://www.youtube.com/watch?v=nW-srV0kKKk).
+* Code of creating profile, posts, authentication components inspired from [Code Institute: Moments](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+2021_T3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/953cd4e5015f483bb05263db3e740e19/).
 
 
 
 [Back to top](<#contents>)
 
 ## Acknowledgements
-This App was completed as a Portfolio Project 4 for the Full Stack Software Developer Diploma at the [Code Institute](https://codeinstitute.net/). I would like to thank my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/), the Slack community and specially tutor support. And all at the Code Institute for their help.
+This App was completed as a Portfolio Project 5 for the Full Stack Software Developer Diploma at the [Code Institute](https://codeinstitute.net/). I would like to thank a lot my mentor [Gareth McGirr](https://github.com/Gareth-McGirr), the Slack community and specially tutor support. And all at the Code Institute for their help.
 
 [Back to top](<#contents>)
 
----------------------------------------------------
 
-resources
-*React notification
-https://dev.to/adyasha8105/react-notifications-33do
-
-
-
-
-
-
-
-
-
-# Bugs 
-2. "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
-    }
-
-3. warning findDOMnODE
-SOL : delete  <React.StrictMode>
-# Getting Started with Create React App
-
-4. POST unutherized
-install jwt-decoded
-
-5. Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
-sol: import * as jwt_decode from 'jwt-decode';
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
