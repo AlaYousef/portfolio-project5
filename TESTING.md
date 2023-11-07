@@ -160,20 +160,22 @@ Back to [README.md](README.md)<br>
 | **Mobile View**           |            |                                                                    |           |
 | Hamburger Icon        | Responsive | Display when screen size width is less than 800px                     | Pass      |
 | Hamburger Icon        | Click | Display the navs menu                    | Pass      |
-| Site logo | Click      | Redirect to home page                                          | Pass      |
-| Home Link     | Click      | Redirect to home page                       | Pass      |
-| Add Recipe             | Click      | Redirect to add recipe form page (Visible only for authenticated users)              | Pass      |
-|  Feed Link   | Click      | Open feeds page (Visible only for authenticated users)               | Pass      |
-| Bookmarked Link   | Click      | Open bookmarked recipes Page   (Visible only for authenticated users)               | Pass      |
-| Profile Link   | Click      | Open profile Page (Visible only for authenticated users)                           | Pass      |
-| Contact us Link       | Click    | Only Visible if User is Authenticated  (Visible only for authenticated users)        | Pass      |
-| Sign In Link           | Click      | Open sign in Form Page                                                    | Pass      |
+| Hamburger Icon        | Click Outside | Navs links menu closed                 | Pass      |
+| Site logo | Click      | Navs links menu closed, Redirect to home page                                   | Pass      |
+| Home Link     | Click      | Navs links menu closed, Redirect to home page                       | Pass      |
+| Add Recipe             | Click      | Navs links menu closed, Redirect to add recipe form page (Visible only for authenticated users)              | Pass      |
+|  Feed Link   | Click      | Navs links menu closed, Open feeds page (Visible only for authenticated users)               | Pass      |
+| Bookmarked Link   | Click      | Navs links menu closed, Open bookmarked recipes Page   (Visible only for authenticated users)               | Pass      |
+| Profile Link   | Click      | Navs links menu closed, Open profile Page (Visible only for authenticated users)                           | Pass      |
+| Contact us Link       | Click    | Navs links menu closed, Only Visible if User is Authenticated  (Visible only for authenticated users)        | Pass      |
+| Sign In Link           | Click      | Navs links menu closed, Open sign in Form Page                                                    | Pass      |
 | Sign In Link            | Unvisible    | Unvisible if user is Authenticated                                     | Pass      |
-| Sign up Link          | Click      | Open Sign up Form page                                                  | Pass      |
+| Sign up Link          | Click      | Navs links menu closed, Open Sign up Form page                                                  | Pass      |
 | Sign up Link           | Unvisible    | Unvisible if user is Authenticated                                     | Pass      |
-| Sign out Link           | Click      | Redirect to the home page                                             | Pass      |
+| Sign out Link           | Click      | Navs links menu closed, Redirect to the home page                                             | Pass      |
 | Sign out Link            | Unvisible    | Only visible if user is logging in                                    | Pass      |
-| Nav Links         | Hover      | color changed with adding shadow                                             | Pass      
+| Nav Links         | Hover      | color changed, adding shadow                                             | Pass      
+
 ### Home Page
 | Test               | Action     | Expected Outcome             | Pass/Fail |
 |-----------------------|------------|-----------------------------------------------------|-----------|
@@ -184,6 +186,17 @@ Back to [README.md](README.md)<br>
 | Follow/unfollow buttons | Click   | follow / unfollow actions              | Pass      |
 | **Recipes Post** |  |   |       |
 | Recipe Image  | Click   | Redirect to the recipe details page           | Pass      |
+| **Recipe Dropdown Menu**| Visible | Visible only for authenticated and recipe owner | Pass      |
+| Recipe Dropdown Menu| Click | dropdown menu with edit and delete icons will displayed | Pass      |
+| Recipe Dropdown Menu (Delete Icon)| Hover | Color changed to blue | Pass      |
+| Recipe Dropdown Menu (Delete Icon)| Click | Recipe deleted | Pass      |
+| Recipe Dropdown Menu (Delete Icon)| Click | A success message "Recipe deleted successfully" will displayed | Pass      |
+| Recipe Dropdown Menu (Edit Icon)| Hover | Color changed to blue | Pass      |
+| Recipe Dropdown Menu (Edit Icon)| Click | Redirect to edit recipe form filled with previous recipe data, add/edit and delete this data  | Pass      |
+| Recipe Dropdown Menu (Edit Icon/Save Button)| Click Save | All text fields validated and checked for errors | Pass      |
+| Recipe Dropdown Menu (Edit Icon/Save Button)| Click Save | With errors, users will required to adding correct data  |
+| Recipe Dropdown Menu (Edit Icon/Save Button)| Click Save | If all correct, recipe will updated, success message "Recipe updated successfully will displayed", users will redirect to this recipe details page  |
+| Recipe Dropdown Menu (Edit Icon/Cancle Button)| Click Cancle | Users will redirect to previous page  |
 | Like Icon | Click | "log in to like recipe" message will display for unlogged users | Pass      |
 | Like Icon | Click | Increase the number of likes by 1 & the icon color changed to blue  | Pass      |
 | Like Icon | Click Again | Unlike the recipe and the number of likes decrease by  | Pass      |
@@ -206,85 +219,106 @@ Back to [README.md](README.md)<br>
 
 
 
-### Add Recipe Page
+### New Recipe Page
 | Test               | Action     | Expected Outcome             | Pass/Fail |
 |-----------------------|------------|--------------------------------------------|-----------|
-| Add Recipe Link                   | Display     | Display only If User is Authenticated | Pass      |
-| Add Recipe Form (if required) | Submit         | If leave blank: Display Warning, form won't Submit  | Pass |
-| Recipe Title   | Enter exist name and click submit   | If leave blank: Display Warning, form won't submit  | Pass      |
-| Choose Image Button      | Click       | Open device storage to select image   | Pass      |
-| Choose Image Button      | Not Clicked     | Default image will be set for the recipe card | Pass      |
-| **Submit Button** | Click     | If all Fields are Valid, Redirect to this My Recipes page   | Pass      |
-| Submit Button | Click   | Success message display informing the user that the recipe has been created successfully    | Pass      |
-| Success message | Disappear     | Success message disappear after 3 seconds     | Pass      |
-| **Cancel Button**  | Click                 | Redirect to Home Page        | Pass      |
+| New Recipe Nav Link             | Display     | Display only if user is authenticated | Pass      |
+| New Recipe Nav Link             | Hover     | Color changed to blue, shadow added | Pass      |
+| New Recipe Nav Link             | Click     | Color changed to blue, redirect to create recipe form page| Pass      |
+| **Create Recipe Form Page** |    |  |  |
+| Recipe Form Page | Click Submit       | If any field leaves blank: Display an error alert and form won't Submit  | Pass |
+| Recipe Form Page | Click Submit       | check if image size is less or more than the specified size an error alert will displayed allerts the user with the appropriate size | Pass |
+| Recipe Form Page | Click Image Field     | choose image window from your device will displayed to choose the image | Pass |
+| Recipe Form Page | Click Image Field     |  After choosing image, Change the image button will display| Pass |
+| Recipe Form Page / Image Field |  Click Change the image button    | choose image window from your device will displayed to choose the image  | Pass |
+| **Submit Button** | Hover     | button background changed to white and button text color changed to blue   | Pass      |
+| Submit Button | Click       | If all form fields filled with correct data:1. recipe will created 2. users get a success message "recipe created successfully" 3. user will redirect to this recipe details page | Pass |
+| **Cancel Button** | Hover     | button background changed to white and button text color changed to blue   | Pass      |
+| Cancel Button | Click       | Users redirect to the previouse page | Pass |
 
-### Edit Recipe Page
+### Feed Page
 | Test               | Action     | Expected Outcome             | Pass/Fail |
 |-----------------------|------------|--------------------------------------------|-----------|
-| Edit Recipe Button     | Display  | Display Only for the recipe's author | Pass      |
-| Edit Recipe Button     | Hover  | Underline and Change Text Color | Pass      |
-| Edit Recipe Button     | Click  | Redirect to Add Recipe Form to Edit the Recipe's Fields  | Pass      |
-| **Submit Button**    | Click  | Redirect to My Recipes page withe edited information  | Pass      |
-| Submit Button     | Click   | Success message display informing the user that the recipe has been created successfully    | Pass      |
-| Success message | Disappear     | Success message disappear after 3 seconds     | Pass      |
-| **Cancel Button**   | Click   | User is redirected back to My Added Recipe | Pass      |
+| Feed Nav Link     | Display     | Display only if user is authenticated | Pass      |
+| Feed Nav Link      | Hover  | Color changed to blue, shadow added | Pass      |
+| Feed Nav Link      | Click  | Color changed to blue while feed page is opened, redirect to feed page  | Pass      |
+| Feed Nav Link      | Click  |  Feed page display all recipes  created by others  | Pass     |
 
-### Delete Recipe Page
+### Bookmarked Page
 | Test               | Action     | Expected Outcome             | Pass/Fail |
 |-----------------------|------------|--------------------------------------------|-----------|
-| Delete Recipe Button     | Display  | Display Only for the recipe's author | Pass      |
-| Delete Recipe Button     | Hover  | Underline and Change Text Color | Pass      |
-| Delete Recipe Button     | Click  | Redirect to Delete Confirmation Form  | Pass      |
-| **Delete Button** | Click  | Recipe deleted and removed from user's My Recipes page    | Pass      |
-| Delete Button | Click  | Success message display informing the user that the recipe has been created successfully | Pass      |
-| Success message | Disappear     | Success message disappear after 3 seconds     | Pass      |
-| Delete Button | Click  | Redirect back to the My recipes page       | Pass      |
-| **Cancel Button** | Click  | Redirect to My Recipes page      
+| Bookmarked Nav Link     | Display     | Display only if user is authenticated | Pass      |
+| Bookmarked Nav Link      | Hover  | Color changed to blue, shadow added | Pass      |
+| Bookmarked Nav Link      | Click  | Color changed to blue while bookmarked page is opened, redirect to bookmarked page  | Pass      |
+| Bookmarked Nav Link      | Click  |  Bookmarked page display all recipes that the user bookmarked | Pass     |
+
+### Profile Page
+| Test               | Action     | Expected Outcome             | Pass/Fail |
+|-----------------------|------------|--------------------------------------------|-----------|
+| Profile Nav Link     | Display     | Display only if user is authenticated | Pass      |
+| Profile Nav Link      | Hover  | Color changed to blue, shadow added | Pass      |
+| Profile Nav Link      | Click  | Color changed to blue while Profile page is opened  | Pass      |
+| Profile Nav Link     | Click  |  Redirect to Profile page | Pass     |
+| Profile Page    | Display  |  1. Display profile owner avatar and username.  2. Display number of recipes posts, number of followers and number of following the profile owner was made.  3. Display profile Bio if exist  3. Display all recipes created by profile owner. | Pass     |
+| **Profile Page dropdown menu**   | Visible  |  Visible only for profile owner  | Pass     |
+| Profile Page dropdown menu   | Hover  |  Icon Color changed to blue | Pass     |
+| Profile Page dropdown menu   | Click  |  Display dropdown menu options with: 1. Edit profile 2. Change username 3. Change password | Pass     |
+| Profile Page dropdown menu / Edit Profile   | Hover  |  Background color changed to blue  | Pass     |
+| Profile Page dropdown menu / Edit Profile   | Click  |  Redirect to edit profile form page   | Pass     |
+| Profile Page dropdown menu / Edit Profile   | Click  |  Add data to Bio  field  | Pass     |
+| Profile Page dropdown menu / Edit Profile   | Click change image   |  open device window to choose an image  | Pass     |
+| Profile Page dropdown menu / Edit Profile page  | Click Save  |  Profile will edited with updated data, users get a success message "profile edited successfully" and redirected to profile page.  | Pass     |
+| Profile Page dropdown menu / Edit Profile page  | Click Cancle  |  Redirected to the previouse page  | Pass     |
+| Profile Page dropdown menu / Change Username  | Hover  |  Background color changed to blue  | Pass     |
+| Profile Page dropdown menu / Change Username  | Click  |  Redirect to edit username form page, username textfield contains the current username   | Pass     |
+| Profile Page dropdown menu / Change Username   | Click  |  Add new username | Pass     |
+| Profile Page dropdown menu / Change Username | Click Save  |  username will updated, user get success message "username updated successfully", redirect to the profile page | Pass     |
+| Profile Page dropdown menu / Change Username | Click Cancle  |  Redirect back to the profile page | Pass     |
+| Profile Page dropdown menu / Change Password  | Hover  |  Background color changed to blue  | Pass     |
+| Profile Page dropdown menu / Change Password  | Click  |  Redirect to edit Password form page| Pass     |
+| Profile Page dropdown menu / Change Password   | Click  | Two passwords textfields, password and confirm password| Pass     |
+| Profile Page dropdown menu / Change Password   | Click  | Input new password, If textfields doesn't not match users will get an error alert | Pass     |
+| Profile Page dropdown menu / Change Password | Click Save  |  Password will updated, user get success message "password updated successfully", redirect to the profile page | Pass     |
+| Profile Page dropdown menu / Change Password | Click Cancle  |  Redirect back to the profile page | Pass     |
+
+
+### Contact Us Page
+| Test               | Action     | Expected Outcome             | Pass/Fail |
+|-----------------------|------------|--------------------------------------------|-----------|
+| Contact Us Nav Link             | Display     | Display only if user is authenticated | Pass      |
+| Contact Us Nav Link             | Hover     | Color changed to blue, shadow added | Pass      |
+| Contact Us Nav Link             | Click     | Color changed to blue, redirect to Contact Us form page| Pass      |
+| **Contact Us Form Page** |    |  |  |
+| Contact Us Form Page | Hover Send button      | Background color changed to white and text color changed to blue| Pass |
+| Contact Us Form Page | Click Send       | If any field leaves blank: Display an error alert & error message, form won't Submit  | Pass |
+| Contact Us Form Page | Click Send       | If form fields filled correctly, data will posted to the and the user get a success message with "Thank you for your message.." and the user redirected to the home page | Pass |
+| Contact Us Form Page | Hover Cancle button      | Background color changed to white and text color changed to blue| Pass |
+| Contact Us Form Page | Click Cancle       | User will redirected to the previouse page | Pass |
 
 ### Django Authentiaction Pages
 | Test               | Action     | Expected Outcome             | Pass/Fail |
 |-----------------------|------------|--------------------------------------------|-----------|
-| **Register Page**    |                                          |                                            |           |
-| Register Link              | Click                                     | Redirect to Sign Up page                     | Pass      |
-| Username field             | Leave blank                               | On submit: form won't submit             | Pass      |
-| Username field             | Insert correct format                     | On submit: form submit                     | Pass      |
-| Username field             | Insert an exist username                  | On submit: form won't submit               | Pass      |
-| Username field             | Insert an exist username                 | Error message displays                     | Pass      |
-| Email field                | Insert incorrect format                   | On submit: form won't submit               | Pass      |
-| Email field                | Insert incorrect format                   | Error message displays                     | Pass      |
-| Email field                | Insert correct format                     | On submit: form submit                     | Pass      |
-| Email field                | Leave empty                               | On submit: form submit                     | Pass      |
-| Email field                | Insert an exist email                    | On submit: form won't submit               | Pass      |
-| Email field                | Insert an exist email                    | Error message displays                     | Pass      |
-| Password field             | Insert incorrect format                   | On submit: form won't submit               | Pass      |
-| Password field             | Insert incorrect format                   | Error message displays                     | Pass      |
-| Password field             | Passwords don't match                     | On submit: form won't submit               | Pass      |
-| Password field             | Passwords don't match                     | Error message displays                     | Pass      |
-| Password field             | Insert correct format and passwords match | On submit: form submit                     | Pass      |
-| Sign Up button(form valid) | Click                                     | Form submit                                | Pass      |
-| Sign Up button(form valid) | Click                                     | Redirect to Home page                      | Pass      |
-| Sign Up button(form valid) | Click                                     | Success message confirming login appears   | Pass      |
-| Success message            | Disappear                         | Success message disappear after 3 seconds     | Pass      |
-| **Log In Link**                   |                                           |                                            |           |
-| Username field             | Leave blank                               | On submit: form won't submit               | Pass      |
-| Username field             | Leave blank                               | Error message displays                     | Pass      |
-| Username field             | Insert wrong username                     | On submit: form won't submit               | Pass      |
-| Username field             | Insert wrong username                     | Error message displays                     | Pass      |
-| Password field             | Leave blank                               | On submit: form won't submit               | Pass      |
-| Password field             | Leave blank                               | Error message displays                     | Pass      |
-| Password field             | Insert wrong password                     | On submit: form won't submit               | Pass      |
-| Password field             | Insert wrong password                     | Error message displays                     | Pass      |
-| Login button(form valid)   | Click                                     | Form submit                                | Pass      |
-| Login button(form valid)   | Click                                     | Redirect to Home page                      | Pass      |
-| Login button(form valid)   | Click                                     | Success message confirming login appears   | Pass      |
+| **Sign up Page**    |                                          |                                            |           |
+| Sign up Link              | Visible               | Visisble to logged out users                     | Pass      |
+| Sign up Link              | Hover               | Color changed to blue, shadow added              | Pass      |
+| Sign up Link              | Click               | Redirect to sign up form page          | Pass      |
+| Username field             | Leave blank, Insert an exist username            | On submit: alert error message will disply          | Pass      |
+| Password field             | Insert incorrect format                   | On submit: alert error message will disply    | Pass      |
+| Password field             | Passwords don't match                     | On submit: alert error message will disply    | Pass      |
+| Sign Up button(form valid) | Hover  | Button background changed to blue, button text changed to white               | Pass      |
+| Sign Up button(form valid) | Click                                     | Redirect to Sign in page                  | Pass      |
+| Sign Up button(form valid)   | Click              | Success message confirming sign up displayed    | Pass      |
 | Success message | Disappear     | Success message disappear after 3 seconds     | Pass      |
-|  **Log Out Link**   |                                           |                                            |           |
-| Log Out Link       |     Click                  |     Display Confirmation Message                                       |           |
-| **Yes button**              | Click             | Redirect to Homepage, NavBar link Changed       | Pass      |
-| Logout button              | Click         | Success message confirming log out appears | Pass      |
-| Login button(form valid)   | Click                                     | Success message confirming login appears   | Pass      |
-| **No Button**   | Click           | Still in the current page  | Pass      |
+| **Sign In Page**                   |                                           |                                            |           |
+| Username field             | Leave blank                               | On submit: alert error message will disply    | Pass      |
+| Username field             | Insert wrong username                     | On submit: alert error message will disply   | Pass      |
+| Password field             | Leave blank                               | On submit: alert error message will disply           | Pass      |
+| Password field             | Insert wrong password                     |      On submit: alert error message will disply        | Pass      |
+| Login button(form valid)   | Hover           |Button background changed to blue, button text changed to white       | Pass      |
+| Login button(form valid)   | Click             | Redirect to Home page                      | Pass      |
+| Login button(form valid)   | Click              | Success message confirming sign in displayed   | Pass      |
+| Success message | Disappear     | Success message disappear after 3 seconds     | Pass      |
+
 
 [Back to top](<#contents>)
 
