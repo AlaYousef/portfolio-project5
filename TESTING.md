@@ -14,128 +14,39 @@ Back to [README.md](README.md)<br>
 
 
 ## User Story and Feature Testing
-### EPIC | User Navigation
-#### Content Navigation
- _As a Site User I can navigate easily around site contents so that I know if it meets my neeeds._
+### User Stories Testing
 
-- Navigation bar is visible on every page of the website and fully responsive on different screen sizes.
-
-![Navigation Bar](documentation/readme_images/navigation-bar.png)<br>
-- Arrow at the end of each page help users to navigate easily to the top especially in the home page.
-
-![Arrow](documentation/readme_images/arrow-top.png)<br><br>
-
-
-#### Site Pagenation
-* _As a Site User I can view paginated list of reciepes so that easily select one to view._
-
-- On clicking on any recipe category will display a list of recipes. Each page has 6 recipe and the other recipes displayed on the next page that can be displayed on clicking on the next button. 
-
-![Navigation Bar](documentation/readme_images/next-btn.png)<br><br>
-
-### EPIC | User Profile
-#### Account Registration
- _As a Site User I can register an account so that I can comment and like._
-
-- Navigation bar is visible on every page of the website and fully responsive on different screen sizes.
-
-![Navigation Bar](documentation/readme_images/navigation-bar.png)<br>
-- Arrow at the end of each page help users to navigate easily to the top especially in the home page.
-
-![Arrow](documentation/readme_images/arrow-top.png)<br><br>
-
-#### Account Registration
- _As a Site User I can register an account so that I can comment and like._
-
-* Users can see _Register_ link in the navbr, when clicked user will be navigate to sign-up page to fill the required information.
-
-#### Log in / out
- _As a Site User I can log in/ out so that I keep my account secure._
-
-* After the user register an account, _log-in_ and _log-out_ links can be accessed.
-
-#### Log in Status
- _As a Site user I can see my status if I logged in or out so that I can interact with contents by leaving comments , like and bookmark recipes._
-
-* Once the user logged in, the user name will be diplayed in the home page, my bookmarke and my recipes pages. 
-
-![Username](documentation/readme_images/user-name.png)<br>
-
-* Also the user will see Add recipe and profile dropdown links after logged-in.
-* The user can see comment form, so can leave a comment.
-* The user can like/dislike and bookmarke recipes.
-* If the user click on like or bookmarke buttons without logging-in, the user will be rdeirect to log-in page to log-in.
-
-
-
-#### View Bookmarked recipes
- _As a Logged-in User I can view my bookmarked recipes in my profile so that I can find them easily each time I need them._
-
-* Logged-in users can access profile dropdown menu. So the user can open bookmark page and view all bookmarked recipes.
-
-#### View My Published Recipes
- _As a Site User I can view my published recipes so that I can manage all my added recipes from my profile._
-
- * Logged-in can access my recipes page and view all his own published recipes.
-
-
-### EPIC | Recipe Mangagement
-#### Mange User Recipe
- _As a Site User I can add my own recipe so that I can share it with other users._
-
-* Logged-in users can add their own recipes and have access to them by editing or deleting.
-* The user will get confirmation message to notified that the recipe has been created,updated or deleted successfully. 
-
-![My-Recipes Page](documentation/readme_images/my-recipes.png)<br>
-
-####  Admin Managment.
- _As a Site Admin I can create, read, update and delete recipes so that I can manage my site content and share recipes with other users._
-
-* Site admin has the access all CRUD features from the backend.
-
-### EPIC | Recipe Interaction
-#### View Recipeslist
- _As a Site User I can view a list of recipes so that I can select one to read._
-
-* All users can view recipes lists for any category on any time.
-
-#### View Recipe
- _As a Site User I can click on a recipe post so that I can read full recipe details._
-
-* All users can show all the detailes of any recipe separately.
-
-#### View Comments
- _As a Site User/Admin I can view comments on an individual recipe so that I can read the conversation._
-
-* All users can read the comment on each recipe. So, csn get an impression of the recipe before applying it.
-
-#### Comment on a recipe
- _As a Site User I can leave comments on a recipe so that I can be involved in the conversation._
-
-* Looged in users can leave a comment on a specific recipe, so he can write his review or experience for this recipe.
-
-#### View Likes
- _As a Site User/Admin I can view the number of likes on each post so that I can see which is the most popular._
-
-* All users can see the how many likes on each recipe. Therfore, he can easily find out the most delicious recipe and try it.
-
-#### Like / Unlike Recipe
- _As a Site User I can like or unlike recipe so that I can interact with the content._
-
-* Logged in users can like/dislike a specific recipe.
-
-#### Add bookmark
- _As a Site User I can bookmark recipe so that I can save it in my profile._
-
-* Logged in users can save any recipe they liked inthe bookmark page so can return to in needed.
-
-### EPIC | Site Management
-#### Approve Comments
- _As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments._
-
-* All the published comment were approved only by the site admin.
+|     EPIC               | User Story |    Expected            | Pass / Fail  |
+|     ---                |     ---    |     ---------------------------------                |     ---    |
+|  **User Navigation**      | As a user I can view a navbar from every page so that I can navigate easily between pages|       Navigation bar is visible on every page of the website and fully responsive on different screen sizes         |    Pass  |
+|                        | As a logged out user I can see sign in and sign up options so that I can sign in/sign up|Sign in / Sign up navlinks displayed on the navbar for logged out users        |     Pass  |
+|                        | As a user I can navigate through pages quickly so that I can view content seamlessly without page refresh |Each navlink redirect to the expected page without any problems               |     Pass    |
+|                        | As a user I can view user's avatars so that I can easily identify users of the application    | User's avatar is shown in the navbar for the current user and shown at the top of each post, so users can know who is the post owner    |   Pass    |
+|  **User Authentication**   | As a user I can create a new account so that I can access all the features for signed up users | All users have the ability to create a new account by clicking on sign up link in the navbar and input all required information correctly  |   Pass    |
+|                        | As a user I can sign in to the app so that I can access functionality for logged in users | All Users that have accounts can signing in to the application by clicking on sign in link in the navbar and input the required information correctly |   Pass    |
+|                        | As a user I can tell if I am logged in or not so that I can log in if I need to | Navbar display a list of navlinks including _Profile_ navlink with the user's avatar so the user know  wether he is logging in or not |   Pass    |
+|                        | As a user I can maintain my logged-in status until I choose to log out so that my user experience is not compromised | Users can interact with the application after signing in for up 24 hours after that the user should logging in again |   Pass    |
+|  **Profile Management**  | As a user I can view basic profile information so that I can check user profile page | Users can view any other user's profile  by clicking on profile owner avatar |   Pass    |
+|                         | As a user I can see a list of the most followed profiles so that I can see which profiles are popular |Users can see the most followed profiles list at the right side of the screen |   Pass    | 
+|                         | As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them | Users can view any other user's profile and view all recipes post,number of these posts the profile owner has in addition to nuber of following and users followed this profile  |   Pass    |
+|                          | As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed| Logged in users have the ability to to see and click on follow/unfollow button to follow/unfollow users so can see in the feed page the posts of my favourite profiles |   Pass    |
+|                          | As a user I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them| Users can list all recipes posts for a specific user by visiting the user prfoile page, so users can decide to follow this profile or not |   Pass    |
+|                          | As a logged in user I can edit my profile so that I can change my profile picture and bio| Logged in and profile owners have the ability to edit their own profile page (change avatar or/and Bio) when needed, by clicking on edit profile from the dropdown menu |   Pass    |
+|                          | As a logged in user I can update my username and password so that I can change my display name and keep my profile secure| Logged in and profile owners have the ability to change their own username/password, by clicking on change username/change password from the dropdown menu |   Pass    |
+|    **Recipes Management**  | As a logged in user I can create recipes so that I can share my healthy recipes with the world!| Logged in users have the ability to create a recipe and share it with other followers by clicking on _Nea Recipe_ navlink|   Pass    |
+|                          | As a user I can view the details of a single recipe so that I can learn more about it| Users can view a recipe post details page by clicking on the post's image, so will redirect to the recipe details page |   Pass    |
+|                          | As a logged in user I can like a recipe post so that I can show my support for the recipes that interest me| Logged in users can click on like icon, the number of likes will increase so users can see the most liked recipes |   Pass    |
+|                    | As a user I can view all the most recent recipes, ordered by most recently created first so that I am up to date with the newest one| List of recipes displying in the home page and the most recently created displyed first, so users are up to date with everything new|   Pass    |
+|                    | As a user I can search for recipes with keywords so that I can find the recipes and user profiles I am most interested in.| Users can search for a specific recipe by input any word in the recipe title so can display all recipes wanted|   Pass    |
+|                    | As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about | Logged in users can  see all posts for users they followed and stay up to date with what they are posting (All that in the Feed page ) |   Pass    |
+|                    | As an owner of a comment I can delete my comment so that I can control removal of my comment from the application | Logged in and comment owner can delete his own comment if needed |   Pass    |
+|                    | As an owner of a comment I can edit my comment so that I can fix or update my existing comment | Logged in and comment owner can fix or edit his own exisiting comment if needed |   Pass    |
+|                    | As a logged in user I can save a recipe post so that I can show it when i need. | Users have ability to save recipes by clicking on bookmark icon under the recipe and it will be saved in _Bookmarked_ page |   Pass    |
+|                    | As a logged in user I can view the recipes I have bookmarked so that I can find the recipes I enjoy the most | Users can list all recipes that he bookmarked by clicking on _Bookmarked_ navlink ordered by most recently created first  |   Pass    |
+|   **Users Contacts**   | As a user, I would like to be able to contact the admin so that I can send any issues or suggestions  |Users have the ability to contact with application admin to send any suggestions or issues by clicking on _Conatct us_ navlink and input the fields correctly|   Pass    |
 
 [Back to top](<#contents>)
+
 
 ## Manuall Test
 
